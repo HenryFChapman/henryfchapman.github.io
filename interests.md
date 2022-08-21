@@ -6,6 +6,8 @@ subtitle: Hiking, Backpacking, and Climbing
 
 When I’m not working, I’m an avid international climber and backpacker!
 
+![alt text](assets/img/IMG_7879.jpg)
+
 I'm currently planning a week-long trip along the Alaskan Brooks Range and a solo 90 mile thruhike of the [Pfiffner Traverse](https://andrewskurka.com/adventures/pfiffner-traverse-colorado-rockies/) next summer. 
 
 Some past backpacking and climbing highlights include:
