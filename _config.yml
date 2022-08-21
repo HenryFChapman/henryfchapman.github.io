@@ -28,7 +28,7 @@ navbar-links:
     - Bank Accounts: "bankAccounts"
     - Cell Site Mapping: "cellSiteMapping"
   Past Cases: "pastCases"
-  Resume: "resume"
+  Resume: "https://github.com/HenryFChapman/henryfchapman.github.io/blob/49abd82f20178a76548b36525e43ab075a97f1f4/HenryChapmanResume.pdf"
   Interests: "interests"
 
 ################
