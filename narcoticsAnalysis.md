@@ -14,6 +14,10 @@ Now knowing that drug cases made up such a high percentage of our overall caselo
 
 Below, you can see the network of all 2019 KCPD drug dealer defendants, represented by the green dots. Blue dots are non-violent cases, while red dots are violent cases. You’ll see that only one-third of all referred drug dealers had a documented history of Jackson County violence.
 
+<iframe id="advanced_iframe_2" name="advanced_iframe_2" src="https://kcpdclearance.firebaseapp.com/NetworkData.html" width="100%" height="650" frameborder="0" allowtransparency="true" loading="lazy" style=";width:100%;height:650px;"></iframe>
+
 Having verified that our drug enforcement efforts did not connect to violence and had highly problematic racial disparities, the Jackson County Prosecutor’s Office reevaluated our charging guidelines on non-violent drug cases. We now file drug-related cases only with a documented community concern or a demonstrable connection to violence. As a result, we declined 92.5% of all 2021 KCPD drug cases. This policy was Kansas City only, as Eastern Jackson County police agencies did not refer nearly as many drug cases as KCPD, and referred almost no drug sale cases.
+
+<iframe id="advanced_iframe_3" name="advanced_iframe_3" src="https://jacksoncomo.maps.arcgis.com/apps/dashboards/76d2dd40d8774e2e9773fb14988e09b0" width="100%" height="450" frameborder="0" allowtransparency="true" loading="lazy" style=";width:100%;height:450px;"></iframe>
 
 Over the last year, Jackson County police agencies have referred fewer drug cases. We received only 1168 drug-related cases in 2021, just 22.8% of our 2021 caseload. Moreover, we have received around 50% fewer drug sale cases than we did pre-pandemic. We hope more resources are redirected to investigating and solving serious violent crimes.
