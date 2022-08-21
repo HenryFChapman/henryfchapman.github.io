@@ -21,9 +21,15 @@ author: Henry F. Chapman
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+  Past Work:
+    - Narcotics Analysis: "narcoticsAnalysis"
+    - Social Networks: "socialNetworks"
+    - 3D Visualizations: "threeDimensionalVisualizations"
+    - Bank Accounts: "bankAccounts"
+    - Cell Site Mapping: "cellSiteMapping"
+  Past Cases: "pastCases"
+  Resume: "resume"
+  Interests: "interests"
 
 ################
 # --- Logo --- #
@@ -38,7 +44,7 @@ round-avatar: true
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
-#title-img: /path/to/image
+title-img: "/assets/img/avatar-icon.png"
 
 
 #####################################
