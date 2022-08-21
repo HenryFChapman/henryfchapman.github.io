@@ -23,4 +23,5 @@ Some past backpacking and climbing highlights include:
 - Three weeks rock climbing in Wyoming with the NOLS
 - Former NOLS Wilderness First Responder/Nationally Certified EMT/B
 
+![alt text](assets/img/IMG_7088-scaled.jpg)
 
