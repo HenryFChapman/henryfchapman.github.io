@@ -4,7 +4,7 @@ title: About Me
 subtitle: What I Do and What I Did
 ---
 
-Currently, I'm a researcher at [Infegy] (https://www.infegy.com), a data analytics and visualization company based in Kansas City. 
+Currently, I'm a researcher at [Infegy](https://www.infegy.com), a data analytics company based in Kansas City. 
 
 In a past life, I was a data analyst that worked for prosecutors' offices around the country. I started a Crime Strategies Unit to track gun violence in Kansas City. I also wrote software to help attorneys investigate violent crimes. I led a project examining racial disparities with drug cases that resulted in a 90% reduction in narcotics related felony prosecutions in Kansas City. I built dashboards that monitor how cases flow through the office and guide executive decision making.
 
