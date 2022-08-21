@@ -14,5 +14,6 @@ We looked at every homicide, non-fatal shooting, and robbery from 2017 through m
 
 Network analysis is also very helpful in in individual case analysis. People leave digital trails every day that law enforcement can use to prove these connections. These trails can come from Facebook, phone records, or any dataset that uses linked nodes.
 
+![alt text](assets/img/boxes.png)
 
 While working on a double homicide trial, we recognized that we would need independent corroboration. These boxes are full of paper beeper records from Sprint cell phones back in 2007. I digitized them all into a database of thousands of numbers and tens of thousands of phone calls, then used them to visualize the network. I paired the names associated with each phone number to the actual call records, creating a timeline of the night’s events. These phone records and corresponding social network model provided that independent corroboration that confirmed every witness statement. At the trial, the network and phone records proved to be persuasive evidence.
