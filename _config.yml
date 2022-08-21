@@ -24,7 +24,6 @@ navbar-links:
   Past Work:
     - Narcotics Analysis: "narcoticsAnalysis"
     - Social Networks: "socialNetworks"
-    - 3D Maps: "threeDimensionalVisualizations"
     - Bank Accounts: "bankAccounts"
     - Cell Site Mapping: "cellSiteMapping"
   Past Cases: "pastCases"
