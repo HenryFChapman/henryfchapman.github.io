@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About Me
-subtitle: What I Do and What I Did
+title: Narcotics Analysis
+subtitle: Ending The War on Drugs in Kansas City
 ---
 
 The COVID-19 Pandemic that killed so many Kansas Citians also stopped virtually all Jackson County Court proceedings for a year. This forced the Jackson County Prosecutor’s Office to revaluate which cases it was sending through the criminal justice system.
