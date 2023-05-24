@@ -6,7 +6,7 @@ subtitle: Ending The War on Drugs in Kansas City
 
 The COVID-19 Pandemic that killed so many Kansas Citians also stopped virtually all Jackson County Court proceedings for a year. This forced the Jackson County Prosecutor’s Office to revaluate which cases it was sending through the criminal justice system.
 
-<iframe src="https://jacksoncomo.maps.arcgis.com/apps/dashboards/35ed56435a514d4c91d17a15f4c424ee" width="100%" height="450" frameborder="0" allowtransparency="true" loading="lazy" style=";width:100%;height:450px;"></iframe>
+![alt text](assets/img/NarcoticsChart1.png)
 
 I uncovered that one-third of all police-referred cases involved non-violent drug offenses. The majority of these offenses were low-level possession of user amounts of methamphetamine, crack-cocaine, and heroin. We also found alarming racial disparities in drug referrals and prosecution. Black people in Kansas City (Jackson County) make up 39% of the population, but were 85% of referred drug sale cases. The majority of those drug sales were for user-level amounts of marijuana. Firearms were recovered in less than 5% of referred drug cases.
 
@@ -18,6 +18,6 @@ Below, you can see the network of all 2019 KCPD drug dealer defendants, represen
 
 Having verified that our drug enforcement efforts did not connect to violence and had highly problematic racial disparities, the Jackson County Prosecutor’s Office reevaluated our charging guidelines on non-violent drug cases. We now file drug-related cases only with a documented community concern or a demonstrable connection to violence. As a result, we declined 92.5% of all 2021 KCPD drug cases. This policy was Kansas City only, as Eastern Jackson County police agencies did not refer nearly as many drug cases as KCPD, and referred almost no drug sale cases.
 
-<iframe id="advanced_iframe_3" name="advanced_iframe_3" src="https://jacksoncomo.maps.arcgis.com/apps/dashboards/76d2dd40d8774e2e9773fb14988e09b0" width="100%" height="450" frameborder="0" allowtransparency="true" loading="lazy" style=";width:100%;height:450px;"></iframe>
+![alt text](assets/img/NarcoticsChart2.png)
 
 Over the last year, Jackson County police agencies have referred fewer drug cases. We received only 1168 drug-related cases in 2021, just 22.8% of our 2021 caseload. Moreover, we have received around 50% fewer drug sale cases than we did pre-pandemic. We hope more resources are redirected to investigating and solving serious violent crimes.
