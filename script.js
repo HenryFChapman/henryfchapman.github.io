@@ -2,20 +2,18 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const href = this.getAttribute('href');
-        // Skip if the href is just '#'
-        if (href === '#') {
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            // Calculate the offset to account for the fixed navbar
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            // Use smooth scrolling with the calculated offset
             window.scrollTo({
-                top: 0,
+                top: targetPosition,
                 behavior: 'smooth'
-            });
-            return;
-        }
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
             });
         }
     });
@@ -71,31 +69,47 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    function setActiveSection() {
-        let currentSection = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - 150) {
-                currentSection = section.getAttribute('id');
-            }
-        });
+    // Update active link highlighting for mobile
+    function highlightNavLink() {
+        const scrollY = window.pageYOffset;
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const viewportHeight = window.innerHeight;
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === currentSection) {
-                link.classList.add('active');
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - navbarHeight;
+            const sectionBottom = sectionTop + sectionHeight;
+            const sectionId = section.getAttribute('id');
+            const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+
+            if (navLink) {
+                // Check if the section is in view
+                const isInView = (scrollY >= sectionTop && scrollY < sectionBottom) ||
+                               (sectionTop >= scrollY && sectionTop < scrollY + viewportHeight);
+                
+                if (isInView) {
+                    navLink.classList.add('active');
+                } else {
+                    navLink.classList.remove('active');
+                }
             }
         });
     }
 
-    // Initial call
-    setActiveSection();
+    // Add scroll event listener with throttling for better performance
+    let isScrolling;
+    window.addEventListener('scroll', () => {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+            highlightNavLink();
+        }, 50);
+    });
 
-    // Update on scroll
-    window.addEventListener('scroll', setActiveSection);
-    window.addEventListener('resize', setActiveSection);
+    // Initial highlight on page load
+    window.addEventListener('load', highlightNavLink);
+
+    // Update highlight when window is resized
+    window.addEventListener('resize', highlightNavLink);
 
     // Smooth scroll for navigation links
     navLinks.forEach(link => {
