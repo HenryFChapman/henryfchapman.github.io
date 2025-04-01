@@ -1100,20 +1100,40 @@
             }
         });
 
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
         // Active link highlighting
         const sections = document.querySelectorAll('section[id]');
         const navigationLinks = document.querySelectorAll('.nav-links a');
 
         function highlightNavLink() {
             const scrollY = window.pageYOffset;
+            const navbarHeight = navbar.offsetHeight;
 
             sections.forEach(section => {
                 const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
+                const sectionTop = section.offsetTop - navbarHeight;
                 const sectionId = section.getAttribute('id');
                 const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
 
-                if (navLink) {  // Only proceed if the nav link exists
+                if (navLink) {
                     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                         navLink.classList.add('active');
                     } else {
@@ -1123,7 +1143,22 @@
             });
         }
 
-        window.addEventListener('scroll', highlightNavLink);
+        // Debounce function to limit how often the scroll event fires
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        const debouncedHighlightNavLink = debounce(highlightNavLink, 10);
+
+        window.addEventListener('scroll', debouncedHighlightNavLink);
         window.addEventListener('load', highlightNavLink);
 
         // Mobile menu toggle
@@ -1134,11 +1169,18 @@
             mobileNavLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking outside
+        // Close mobile menu when clicking outside or on a link
         document.addEventListener('click', (e) => {
             if (!mobileNavLinks.contains(e.target) && !menuButton.contains(e.target)) {
                 mobileNavLinks.classList.remove('active');
             }
+        });
+
+        // Close mobile menu when clicking a link
+        mobileNavLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavLinks.classList.remove('active');
+            });
         });
     </script>
     <script src="script.js"></script>
