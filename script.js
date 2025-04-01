@@ -2,18 +2,20 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            // Calculate the offset to account for the fixed navbar
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-            
-            // Use smooth scrolling with the calculated offset
+        const href = this.getAttribute('href');
+        // Skip if the href is just '#'
+        if (href === '#') {
             window.scrollTo({
-                top: targetPosition,
+                top: 0,
                 behavior: 'smooth'
+            });
+            return;
+        }
+        const target = document.querySelector(href);
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
@@ -22,7 +24,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -30,14 +32,15 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 // Add fade-in animation to sections
 document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
+    section.style.opacity = '1';
+    section.style.transform = 'none';
     section.style.transition = 'all 0.6s ease-out';
     observer.observe(section);
 });
@@ -69,47 +72,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    // Update active link highlighting for mobile
-    function highlightNavLink() {
-        const scrollY = window.pageYOffset;
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        const viewportHeight = window.innerHeight;
-
+    function setActiveSection() {
+        let currentSection = '';
+        
         sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - navbarHeight;
-            const sectionBottom = sectionTop + sectionHeight;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - 150) {
+                currentSection = section.getAttribute('id');
+            }
+        });
 
-            if (navLink) {
-                // Check if the section is in view
-                const isInView = (scrollY >= sectionTop && scrollY < sectionBottom) ||
-                               (sectionTop >= scrollY && sectionTop < scrollY + viewportHeight);
-                
-                if (isInView) {
-                    navLink.classList.add('active');
-                } else {
-                    navLink.classList.remove('active');
-                }
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').slice(1) === currentSection) {
+                link.classList.add('active');
             }
         });
     }
 
-    // Add scroll event listener with throttling for better performance
-    let isScrolling;
-    window.addEventListener('scroll', () => {
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-            highlightNavLink();
-        }, 50);
-    });
+    // Initial call
+    setActiveSection();
 
-    // Initial highlight on page load
-    window.addEventListener('load', highlightNavLink);
-
-    // Update highlight when window is resized
-    window.addEventListener('resize', highlightNavLink);
+    // Update on scroll
+    window.addEventListener('scroll', setActiveSection);
+    window.addEventListener('resize', setActiveSection);
 
     // Smooth scroll for navigation links
     navLinks.forEach(link => {
