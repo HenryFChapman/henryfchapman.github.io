@@ -65,10 +65,10 @@ body {
     position: relative;
 }
 
-.nav-links a::after {
+.nav-links a:not(.dropdown-trigger)::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 50%;
     width: 0;
     height: 2px;
@@ -77,16 +77,16 @@ body {
     transform: translateX(-50%);
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
+.nav-links a:not(.dropdown-trigger):hover::after,
+.nav-links a:not(.dropdown-trigger).active::after {
     width: 80%;
 }
 
-.nav-links a:hover {
+.nav-links a:not(.dropdown-trigger):hover {
     color: #2B6CB0;
 }
 
-.nav-links a.active {
+.nav-links a:not(.dropdown-trigger).active {
     color: #2B6CB0;
     font-weight: 600;
 }
