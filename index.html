@@ -524,6 +524,26 @@
             <div class="resume-text">
                 <h2>Resume</h2>
                 
+                <div class="executive-summary">
+                    <div class="summary-content">
+                        <p>Solutions & Research Engineer with a unique blend of technical expertise and analytical experience. Currently at Infegy, I develop API-driven tools for social intelligence and data analysis, transforming complex data into actionable insights. My background spans criminal justice data analysis, where I led impactful projects reducing narcotics prosecutions by 90% and managed technical aspects of high-profile cases.</p>
+                        <div class="summary-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-code"></i>
+                                <span>Full-stack development & API integration</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Data analysis & visualization</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Machine learning & predictive modeling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <h3 id="experience">Experience</h3>
                 <div class="cv-item">
                     <div class="cv-item-header">
@@ -1139,6 +1159,16 @@
             if (!mobileNavLinks.contains(e.target) && !menuButton.contains(e.target)) {
                 mobileNavLinks.classList.remove('active');
             }
+        });
+
+        // Add this new code: Close mobile menu when clicking any nav link
+        const allNavLinks = document.querySelectorAll('.nav-links a, .dropdown-trigger');
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {  // Only on mobile
+                    mobileNavLinks.classList.remove('active');
+                }
+            });
         });
     </script>
     <script src="script.js"></script>

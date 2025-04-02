@@ -903,17 +903,58 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-        text-align: center;
+        gap: 0.5rem;
+        max-height: calc(100vh - 80px); /* Limit height to viewport minus navbar */
+        overflow-y: auto; /* Allow scrolling if needed */
     }
     
-    .nav-links a {
+    /* Hide dropdown content on mobile */
+    .dropdown-content {
+        display: none !important; /* Force hide dropdowns on mobile */
+    }
+
+    /* Make dropdown triggers behave like regular links */
+    .dropdown-trigger {
         width: 100%;
+        text-align: center;
         padding: 0.75rem;
+        color: var(--text-color);
+        text-decoration: none;
     }
-    
+
+    /* Remove hover effects for dropdowns */
+    .dropdown:hover .dropdown-content {
+        display: none !important;
+    }
+
+    .dropdown-trigger::after {
+        display: none; /* Remove the underline animation */
+    }
+
+    /* Make all nav links look consistent */
+    .nav-links a,
+    .dropdown-trigger {
+        font-size: 1.1rem;
+        padding: 1rem;
+        margin: 0;
+        border-bottom: 1px solid rgba(43, 108, 176, 0.1);
+    }
+
+    .nav-links a:last-child,
+    .dropdown:last-child .dropdown-trigger {
+        border-bottom: none;
+    }
+
     .hero {
         padding-top: 6rem;
         min-height: 75vh;
@@ -1400,6 +1441,87 @@ footer {
     border-radius: 2px;
 }
 
+.executive-summary {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(43, 108, 176, 0.1);
+    box-shadow: 0 4px 6px rgba(43, 108, 176, 0.05);
+}
+
+.summary-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 2rem;
+}
+
+.summary-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid rgba(43, 108, 176, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.1);
+}
+
+.highlight-item i {
+    font-size: 1.5rem;
+    color: #2B6CB0;
+    width: 2rem;
+    text-align: center;
+}
+
+.highlight-item span {
+    font-size: 1rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .executive-summary {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .summary-content p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .summary-highlights {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .highlight-item {
+        padding: 0.75rem;
+    }
+
+    .highlight-item i {
+        font-size: 1.3rem;
+    }
+
+    .highlight-item span {
+        font-size: 0.95rem;
+    }
+}
+
 .resume-text h3 {
     font-size: 2.2rem;
     color: #2d3748;
@@ -1728,6 +1850,37 @@ footer {
 @media (max-width: 768px) {
     .professional-memberships {
         grid-template-columns: 1fr;
+        padding: 0;
+        margin: 1rem 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .professional-memberships .cv-item {
+        margin-bottom: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .professional-memberships .cv-item ul li {
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    .professional-memberships .cv-company h4 {
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    .professional-memberships .organization-description {
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
     }
 }
 
@@ -1770,16 +1923,17 @@ footer {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%;
-    width: 0;
+    left: 0;
+    width: 100%;
     height: 2px;
     background: linear-gradient(135deg, #2B6CB0, #00B5D8);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
 }
 
 .dropdown:hover .dropdown-trigger::after {
-    width: 80%;
+    transform: scaleX(1);
 }
 
 .dropdown-trigger:hover {
@@ -1789,36 +1943,37 @@ footer {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: var(--light-bg);
+    background-color: white;
     min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.1);
     z-index: 1000;
     border-radius: 8px;
     padding: 0.5rem 0;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
+    border: 1px solid rgba(43, 108, 176, 0.1);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-.dropdown-content a:hover {
-    background-color: #2B6CB0;
-    color: white;
-    transform: translateX(5px);
-    transition: all 0.3s ease;
-}
-
 .dropdown-content a {
-    color: var(--text-color);
+    color: #4a5568;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
     display: block;
     transition: all 0.3s ease;
     border-radius: 4px;
     margin: 0 0.5rem;
+    font-size: 0.95rem;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(43, 108, 176, 0.05);
+    color: #2B6CB0;
+    transform: translateX(4px);
 }
 
 /* Mobile Responsive */
@@ -2055,63 +2210,5 @@ footer {
 @media (max-width: 768px) {
     .video-container {
         margin: 0.5rem 0;
-    }
-}
-
-/* Technical Skills Grid */
-.technical-skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.technical-skill-item {
-    background: var(--light-bg);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: transform 0.2s ease;
-}
-
-.technical-skill-item:hover {
-    transform: translateY(-2px);
-}
-
-.technical-skill-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.technical-skill-header i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-right: 0.75rem;
-}
-
-.technical-skill-header h4 {
-    margin: 0;
-    color: var(--text-color);
-}
-
-.technical-skill-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.technical-skill-content li {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-    font-size: 0.95rem;
-}
-
-.technical-skill-content li:last-child {
-    margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-    .technical-skills-grid {
-        grid-template-columns: 1fr;
     }
 } 
