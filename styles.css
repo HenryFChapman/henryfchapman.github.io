@@ -825,12 +825,34 @@ h3 {
 
     .cv-company {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
 
     .company-logo {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
+        margin-right: 0.75rem;
+    }
+
+    .cv-company h4 {
+        font-size: 1.1rem;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .cv-date {
+        text-align: left;
+        width: 100%;
+    }
+
+    .cv-date span {
+        display: block;
+        margin-bottom: 0.25rem;
+        font-size: 0.85rem;
     }
 
     .cv-item ul li {
@@ -839,16 +861,13 @@ h3 {
         margin-bottom: 0.4rem;
     }
 
-    .cv-date {
-        align-items: flex-start;
-    }
-
     .cv-subtitle .location {
         text-align: left;
+        font-size: 0.85rem;
     }
 
     .cv-subtitle .job-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -1170,14 +1189,57 @@ footer {
     pointer-events: none;
 }
 
+/* Default about section layout */
 .about-content {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
+}
+
+/* Special layout for interests section */
+#interests .about-content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+#interests .about-image {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#interests .about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(43, 108, 176, 0.15);
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .about-image {
+        order: -1;
+        margin: 0;
+    }
+
+    #interests .about-image {
+        order: 1;
+        margin: 2rem auto 0;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
 }
 
 .about-text {
@@ -1297,8 +1359,10 @@ footer {
 .about-image {
     position: relative;
     width: 100%;
-    max-width: 800px;
-    margin: 3rem auto 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-image img {
@@ -1311,30 +1375,18 @@ footer {
 
 @media (max-width: 768px) {
     .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
         padding: 0 1rem;
+    }
+
+    .about-image {
+        order: -1;
+        margin: 0;
     }
 
     .about-text h2 {
         font-size: 2rem;
-    }
-
-    .interests-item {
-        padding: 1.5rem;
-    }
-
-    .interests-header i {
-        font-size: 1.8rem;
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .interests-header h3 {
-        font-size: 1.5rem;
-    }
-
-    .interests-item p,
-    .interests-item ul li {
-        font-size: 1.1rem;
     }
 }
 
