@@ -160,12 +160,6 @@ section {
 .resume-text h3:first-of-type {
     margin-top: 0;
 }
-
-/* Add padding to the bottom of the page */
-main {
-    padding-bottom: 50vh;
-}
-
 /* Hero Section */
 .hero {
     position: relative;
@@ -385,9 +379,10 @@ main {
 /* Sections */
 .section {
     padding: 4rem 2rem;
-    border-bottom: 1px solid var(--border-color);
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .container {
@@ -1009,7 +1004,7 @@ footer {
     }
 
     .section {
-        padding: 3rem 1rem;
+        padding: 2rem 1rem;
     }
     
     .timeline-item, .talk-item {
@@ -1168,9 +1163,11 @@ footer {
 
 /* About Section Styles */
 .about-section {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
     position: relative;
-    padding: 6rem 2rem;
-    background: white;
     overflow: hidden;
     scroll-margin-top: 100px;
 }
@@ -1507,12 +1504,12 @@ footer {
 
 .resume-text {
     position: relative;
-    padding: 3rem;
+    padding: 2rem;
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(43, 108, 176, 0.1);
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -1627,7 +1624,7 @@ footer {
 
 .cv-item {
     margin-bottom: 3rem;
-    padding: 2.5rem;
+    padding: 1.5rem;
     background: #f8fafc;
     border-radius: 16px;
     border: 1px solid rgba(43, 108, 176, 0.1);
@@ -1659,7 +1656,7 @@ footer {
     }
 
     .cv-item {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
 }
 
@@ -1758,7 +1755,7 @@ footer {
 
 /* Insight Briefs Section */
 .section-header {
-    text-align: left;
+    text-align: center;
     margin-bottom: 2rem;
 }
 
@@ -1779,16 +1776,94 @@ footer {
     color: #4a5568;
     font-size: 1.2rem;
     max-width: 800px;
-    text-align: left;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .insights-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin: 2rem 0;
-    width: 100%;
-    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.insights-grid.collapsed {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.insights-grid.collapsed .insight-item:nth-child(n+4) {
+    display: none;
+}
+
+/* Criminal intelligence specific grid */
+#criminal-projects .insights-grid,
+#notable-cases .insights-grid,
+#criminal-talks .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#criminal-projects .insights-grid.collapsed,
+#notable-cases .insights-grid.collapsed,
+#criminal-talks .insights-grid.collapsed {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.expand-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #2B6CB0 0%, #4299E1 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 1rem auto 2rem;
+    text-align: center;
+    width: fit-content;
+    display: block;
+}
+
+.expand-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+.expand-button i {
+    transition: transform 0.3s ease;
+}
+
+.expand-button.expanded i {
+    transform: rotate(180deg);
+}
+
+.insights-footer {
+    display: none;
+}
+
+/* Show footer only when grid is expanded */
+.insights-grid:not(.collapsed) + .expand-button + .insights-footer {
+    display: block;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+.insights-footer .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.insights-footer .btn:hover {
+    background: var(--secondary-color-dark);
 }
 
 .insight-item {
@@ -1900,7 +1975,7 @@ footer {
 
 @media (max-width: 768px) {
     .section {
-        padding: 3rem 1rem;
+        padding: 2rem 1rem;
     }
 
     .section-header h2 {

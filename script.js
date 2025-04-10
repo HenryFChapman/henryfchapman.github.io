@@ -154,4 +154,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Handle expand/collapse functionality for insights grid
+    const expandButtons = document.querySelectorAll('.expand-button');
+    
+    expandButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const grid = this.previousElementSibling;
+            const isExpanded = grid.classList.contains('collapsed');
+            
+            if (isExpanded) {
+                grid.classList.remove('collapsed');
+                this.textContent = 'Show Less';
+                this.classList.add('expanded');
+            } else {
+                grid.classList.add('collapsed');
+                this.textContent = 'Show More';
+                this.classList.remove('expanded');
+            }
+        });
+    });
 }); 
