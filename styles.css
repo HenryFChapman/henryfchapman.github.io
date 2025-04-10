@@ -1800,13 +1800,16 @@ footer {
 #criminal-projects .insights-grid,
 #notable-cases .insights-grid,
 #criminal-talks .insights-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 #criminal-projects .insights-grid.collapsed,
 #notable-cases .insights-grid.collapsed,
 #criminal-talks .insights-grid.collapsed {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .expand-button {
@@ -1978,31 +1981,71 @@ footer {
     box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
 }
 
+@media (max-width: 1024px) {
+    .insights-grid,
+    .insights-grid.collapsed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #criminal-projects .insights-grid,
+    #notable-cases .insights-grid,
+    #criminal-talks .insights-grid,
+    #criminal-projects .insights-grid.collapsed,
+    #notable-cases .insights-grid.collapsed,
+    #criminal-talks .insights-grid.collapsed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .section {
-        padding: 2rem 1rem;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-    }
-
-    .insights-grid {
+    .insights-grid,
+    .insights-grid.collapsed,
+    #criminal-projects .insights-grid,
+    #notable-cases .insights-grid,
+    #criminal-talks .insights-grid,
+    #criminal-projects .insights-grid.collapsed,
+    #notable-cases .insights-grid.collapsed,
+    #criminal-talks .insights-grid.collapsed {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0;
     }
-    
+
+    .insights-grid.collapsed .insight-item:nth-child(n+2) {
+        display: none;
+    }
+
+    .insight-item {
+        margin: 0;
+    }
+
+    .insight-image {
+        height: 200px;
+    }
+
     .insight-content {
         padding: 1.2rem;
     }
 
+    .expand-button {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
     .insight-image {
         height: 180px;
     }
 
-    .insights-footer {
-        padding: 1.5rem 0;
+    .insight-content {
+        padding: 1rem;
+    }
+
+    .insight-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .insight-item p {
+        font-size: 0.95rem;
     }
 }
 
