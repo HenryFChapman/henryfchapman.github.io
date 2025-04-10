@@ -1800,7 +1800,7 @@ footer {
 #criminal-projects .insights-grid,
 #notable-cases .insights-grid,
 #criminal-talks .insights-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -1809,7 +1809,7 @@ footer {
 #criminal-projects .insights-grid.collapsed,
 #notable-cases .insights-grid.collapsed,
 #criminal-talks .insights-grid.collapsed {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .expand-button {
@@ -1987,13 +1987,8 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    #criminal-projects .insights-grid,
-    #notable-cases .insights-grid,
-    #criminal-talks .insights-grid,
-    #criminal-projects .insights-grid.collapsed,
-    #notable-cases .insights-grid.collapsed,
-    #criminal-talks .insights-grid.collapsed {
-        grid-template-columns: repeat(2, 1fr);
+    .insights-grid.collapsed .insight-item:nth-child(n+3) {
+        display: none;
     }
 }
 
