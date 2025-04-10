@@ -1756,14 +1756,14 @@ footer {
 /* Insight Briefs Section */
 .section-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .section-header h2 {
     font-size: 2.8rem;
     color: #2d3748;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.25rem;
     background: linear-gradient(135deg, #2B6CB0, #00B5D8);
     -webkit-background-clip: text;
     background-clip: text;
@@ -1855,15 +1855,20 @@ footer {
 .insights-footer .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background: var(--secondary-color);
-    color: var(--primary-color);
+    background: linear-gradient(135deg, #2B6CB0 0%, #4299E1 100%);
+    color: white;
     text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .insights-footer .btn:hover {
-    background: var(--secondary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+    color: white;
 }
 
 .insight-item {
