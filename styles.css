@@ -1307,6 +1307,10 @@ footer {
     display: none;
 }
 
+.about-text a:hover::after {
+    display: none;
+}
+
 .interests-grid {
     display: grid;
     grid-template-columns: 1fr;
