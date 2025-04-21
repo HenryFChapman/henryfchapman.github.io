@@ -285,36 +285,28 @@ section {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin-top: 1rem;
 }
 
-.btn {
+.btn-explore {
+    background: linear-gradient(135deg, #2B6CB0, #00B5D8);
+    color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
+    border: none;
+    -webkit-text-fill-color: white;
+    text-fill-color: white;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #2B6CB0, #00B5D8);
-    color: white;
-    box-shadow: 0 4px 6px rgba(43, 108, 176, 0.2);
-}
-
-.btn-primary:hover {
+.btn-explore:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(43, 108, 176, 0.3);
-}
-
-.btn-secondary {
-    background: white;
-    color: #2B6CB0;
-    border: 2px solid #2B6CB0;
-}
-
-.btn-secondary:hover {
-    background: #2B6CB0;
-    color: white;
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2);
+    background: linear-gradient(135deg, #00B5D8, #2B6CB0);
+    -webkit-text-fill-color: white;
+    text-fill-color: white;
 }
 
 .hero-image {
@@ -970,57 +962,76 @@ footer {
     }
 
     .hero {
-        padding-top: 6rem;
-        min-height: 75vh;
+        min-height: 50vh;
+        padding: 1rem;
+        padding-top: 4rem;
     }
     
     .hero-content {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
-        padding: 2rem;
-        margin-top: 2rem;
-    }
-
-    .hero-main h1 {
-        font-size: 2.2rem;
-        line-height: 1.2;
-        margin-bottom: 0.5rem;
+        gap: 1.5rem;
+        padding: 1.5rem;
         margin-top: 1rem;
     }
 
+    .hero-main h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
     .hero-main h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease 0.4s forwards;
     }
 
     .hero-image {
-        max-width: 200px;
+        max-width: 180px;
         margin: 0 auto;
+        opacity: 0;
+        animation: fadeIn 1s ease 0.6s forwards;
     }
 
     .image-circle {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
     }
 
-    .section {
-        padding: 2rem 1rem;
+    .hero-buttons {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease 0.8s forwards;
     }
-    
-    .timeline-item, .talk-item {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .timeline-item .date, .talk-item .date {
-        min-width: auto;
-    }
+}
 
-    .about-text h2,
-    .news-header h2,
-    .contact-page h1,
-    .resume-text h2 {
-        font-size: 2.2rem;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
