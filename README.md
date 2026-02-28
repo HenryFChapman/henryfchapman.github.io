@@ -1,84 +1,43 @@
-# Henry Chapman's Portfolio Website
+# Henry F. Chapman — Portfolio Website
 
-A modern, responsive portfolio website showcasing professional experience, projects, and expertise in social and criminal intelligence analysis.
+Personal portfolio for Henry F. Chapman, Sales Engineer @ Datadog. Covers a career spanning violent crime analysis in New York, social intelligence for Fortune 500 brands, and infrastructure observability at enterprise scale.
 
-## Features
-
-- **Modern Design**: Clean, professional layout with smooth animations and transitions
-- **Responsive**: Fully responsive design that works on all devices
-- **Dynamic Content**: Organized sections for different types of work and expertise
-- **Interactive Elements**: Expandable project grids, hover effects, and smooth scrolling
-- **Performance Optimized**: Fast loading times and optimized assets
+**Live site:** [henryfchapman.github.io](https://henryfchapman.github.io)
 
 ## Sections
 
-- **About**: Professional background and expertise
-- **Social Intelligence**: Insight briefs, presentations, and technical projects
-- **Criminal Intelligence**: Notable cases, projects, and talks
-- **News**: Latest updates and media coverage
-- **Contact**: Professional contact information and social links
+- **About** — Background, career narrative, and key stats
+- **Social Intelligence** — Insight briefs, presentations, and technical projects
+- **Criminal Intelligence** — Notable cases, technical projects, and talks
+- **Resume** — Experience, education, technical skills, and memberships
+- **Interests** — Personal interests and activities
+- **Contact** — Targeted outreach for observability and data infrastructure roles
 
-## Technologies Used
+## Tech Stack
 
-- HTML5
-- CSS3 (with modern features like CSS Grid and Flexbox)
-- JavaScript (vanilla, no frameworks)
-- Responsive Design Principles
-- Modern CSS Animations and Transitions
+- Vanilla HTML5, CSS3, JavaScript — no frameworks, no build step
+- Canvas-based particle network animation (hero section)
+- CSS custom properties for theming and gradients
+- IntersectionObserver for scroll-triggered fade-ins
+- Responsive layout with hamburger nav at ≤960px
 
-## Setup
+## File Structure
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/henryfchapman/henryfchapman.github.io.git
-   ```
-
-2. Navigate to the project directory:
-   ```bash
-   cd henryfchapman.github.io
-   ```
-
-3. Open `index.html` in your browser to view the site locally.
+```
+index.html          Main page
+styles.css          All styles (CSS variables, responsive design)
+script.js           All JS (nav, scroll, canvas animation, mobile menu)
+aboutme/            Redirect page → /
+images/             Image assets
+images/webp/        WebP versions of images
+```
 
 ## Development
 
-The project uses vanilla HTML, CSS, and JavaScript. No build process is required.
+No build process required — open `index.html` directly in a browser or serve with any static file server.
 
-### File Structure
-
-- `index.html` - Main HTML file
-- `styles.css` - All styles and responsive design
-- `script.js` - Interactive features and functionality
-- `images/` - Image assets
-- `pages/` - Additional HTML pages
-
-### Styling
-
-The site uses a modern CSS architecture with:
-- CSS Variables for consistent theming
-- Flexbox and Grid for layouts
-- Media queries for responsive design
-- Modern CSS features like transitions and transforms
-
-### JavaScript
-
-The JavaScript handles:
-- Navigation functionality
-- Expandable project grids
-- Smooth scrolling
-- Responsive menu behavior
-- Dynamic content loading
-
-## Contributing
-
-This is a personal portfolio website. Contributions are not expected, but if you find any issues or have suggestions, feel free to open an issue.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-- Website: [henryfchapman.github.io](https://henryfchapman.github.io)
-- Email: [Your Email]
-- LinkedIn: [Your LinkedIn Profile] 
+```bash
+git clone https://github.com/henryfchapman/henryfchapman.github.io.git
+cd henryfchapman.github.io
+open index.html
+```
