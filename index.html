@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://henryfchapman.github.io/">
     <meta property="og:title" content="Henry F. Chapman | Sales Engineer @ Datadog">
-    <meta property="og:description" content="Specializing in observability, data analysis, and social intelligence. Expert in connecting complex systems to actionable insights and enabling resilient infrastructure..">
+    <meta property="og:description" content="Specializing in observability, data analysis, and social intelligence. Expert in connecting complex systems to actionable insights and enabling resilient infrastructure.">
     <meta property="og:image" content="https://henryfchapman.github.io/images/webp/profile.webp">
 
     <!-- Twitter -->
@@ -36,8 +36,8 @@
                     <img src="images/webp/apple-touch-icon.webp" alt="Henry Chapman">
                 </div>
             </a>
-            <button class="menu-button">
-                <i class="fas fa-bars"></i>
+            <button class="menu-button" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <div class="nav-links">
                 <a href="#about">About</a>
@@ -79,7 +79,7 @@
                 <h1>Henry F. Chapman</h1>
                 <h2>Sales Engineer @ Datadog</h2>
                 <div class="hero-description">
-                    <p>Specialize in observability, data analysis, and social intelligence. Expert in connecting complex systems to actionable insights and enabling resilient infrastructure.</p>
+                    <p>I help people make sense of complex data. My work has spanned violent crime analysis in New York, social trends for Fortune 500 brands, and infrastructure observability at enterprise scale.</p>
                 </div>
                 <div class="hero-buttons">
                     <a href="#about" class="btn-explore">Explore My Work</a>
@@ -96,18 +96,34 @@
     <main>
         <section id="about" class="about-section">
             <div class="about-content">
+                <div class="about-image">
+                    <img src="images/webp/presentation.webp" alt="Henry Chapman presenting">
+                </div>
                 <div class="about-text">
                     <h2>About</h2>
-                    <p>I’m a Sales Engineer at Datadog, where I help clients connect the dots between complex systems and actionable observability. My work focuses on understanding technical challenges, mapping them to solutions, and enabling teams to run more resilient and intelligent infrastructure.</p>
-                    <p>Previously, I was a Solutions & Research Engineer at Infegy, developing social listening tools, supporting API integrations, and helping clients make sense of billions of social data points. I authored 100+ insight briefs and helped grow Infegy’s API business into a major revenue driver.</p>
-                    <p>Before tech, I worked as a data analyst in prosecutors’ offices in New York and Kansas City, where I focused on violent crime. In Kansas City, I helped launch a Crime Strategies Unit, built tools to track gun violence, and led a racial disparity analysis that reduced narcotics prosecutions by 90%. In New York, I managed the technical side of the state’s first domestic terrorism homicide case and testified extensively in court.</p>
-                    <p>I hold a Master’s in Computer Science (MCIT) from the University of Pennsylvania and a Bachelor’s in Global Affairs from Yale. Outside of work, I’m an Eagle Scout and once thru-hiked (most of) the Pacific Crest Trail.</p>
+                    <p>Sales Engineer at Datadog, working with enterprise teams on multi-product observability. At Infegy I spent three years building social listening tools and driving $7.5M in closed-won revenue. Before tech, I did criminal data analysis for prosecutors in New York and Kansas City, working homicide cases, leading narcotics reform that cut felony filings by 95%, and securing a DOJ grant to launch Missouri’s first local Crime Strategies Unit.</p>
+                    <p>MCIT from Penn Engineering. B.A. in Global Affairs from Yale. Eagle Scout. 1,250 miles of the PCT.</p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="stat-number">$12.4M</span>
+                            <span class="stat-label">Pipeline Generated</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number">106</span>
+                            <span class="stat-label">Insight Briefs Published</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Narcotics Cases Reduced</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number">$350K</span>
+                            <span class="stat-label">DOJ Grant Secured</span>
+                        </div>
+                    </div>
                     <div class="about-buttons">
                         <a href="#contact" class="btn btn-primary">Get In Touch</a>
                     </div>
-                </div>
-                <div class="about-image">
-                    <img src="images/webp/presentation.webp" alt="Henry Chapman">
                 </div>
             </div>
         </section>
@@ -123,7 +139,7 @@
             <div id="insights" class="subsection">
                 <div class="subsection-header">
                     <h3>Insight Briefs</h3>
-                    <p>I publish insight briefs twice monthly, sharing my latest research and analysis on social media trends, data collection techniques, and industry insights.</p>
+                    <p>During three years at Infegy I published over 100 insight briefs on brand, cultural, and political trends in social media. A sample of recent work is below.</p>
                 </div>
                 <div class="insights-grid collapsed">
                     <div class="insight-item">
@@ -218,7 +234,7 @@
                         <div class="insight-content">
                             <div class="insight-date">April 2025</div>
                             <h3>Cool Sh!t: The Infegy API's Limitless Possibilities</h3>
-                            <p>Discover how anyone—technical or not—can build powerful, scalable AI-driven apps using the Infegy API and no-code tools.</p>
+                            <p>Discover how anyone (technical or not) can build powerful, scalable AI-driven apps using the Infegy API and no-code tools.</p>
                             <a href="https://www.infegy.com/infegy-api-creating-insights" class="insight-link" target="_blank" rel="noopener noreferrer">Watch Now →</a>
                         </div>
                     </div>
@@ -566,566 +582,274 @@
         </section>
 
         <!-- CV Section -->
-        <section id="cv" class="about-section">
-            <div class="resume-text">
+        <section id="cv" class="section">
+            <div class="section-header">
                 <h2>Resume</h2>
-                
-                <div class="executive-summary">
-                    <div class="summary-content">
-                        <p>Sales Engineer with a unique blend of technical expertise and analytical experience. Currently at Datadog, I help companies understand their infrastructure and applications with best-in-class observability software. Previously, I built API-driven tools for social intelligence and data analysis, transforming complex data into actionable insights. My background spans criminal justice data analysis, where I led impactful projects reducing narcotics prosecutions by 90% and managed technical aspects of high-profile cases.</p>
-                        <div class="summary-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-code"></i>
-                                <span>Full-stack observability & API integration</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Data analysis & visualization</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-brain"></i>
-                                <span>LLM & Security Observability</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <p>Sales engineering, data analysis, and technical work across observability, criminal intelligence, and social media analytics.</p>
+            </div>
+            <div class="resume-text">
                 <h3 id="experience">Experience</h3>
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <img src="images/webp/Datadog.webp" alt="Datadog Logo" class="company-logo" loading="lazy">
-                                <h4><a href="https://www.datadoghq.com" target="_blank" rel="noopener noreferrer">Datadog</a></h4>
-                            </div>
-                            <div class="cv-date">
-                                <span>August 2025 - Present</span>
-                                <span>Denver, Colorado, United States</span>
-                            </div>
+                <div class="exp-list">
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/Datadog.webp" alt="Datadog" class="exp-logo" loading="lazy">
+                            <a href="https://www.datadoghq.com" class="exp-company" target="_blank" rel="noopener noreferrer">Datadog</a>
+                            <span class="exp-dates">Aug 2025 – Present</span>
                         </div>
-                        <div class="organization-description">Best-in-class observability platform helping both large and small companies understand their cloud and on-premise infrastructure and application stack.</div>
-                        <div class="cv-nested-roles">
-                            <div class="cv-nested-role">
-                                <div>
-                                    <div class="cv-nested-role-title">Sales Engineer</div>
-                                    <div class="cv-nested-role-date">Jul 2024 - Present</div>
-                                    <div class="cv-nested-role-content">
-                                        <ul>
-                                            <li> Starting on Datadog’s multi-product observability platform (Infrastructure Monitoring, APM, Logging, Security).</li>
-                                            <li> Supporting enterprise sales cycles by mapping technical solutions to customer requirements.</li>
-                                        </ul>
-                                    </div>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">Sales Engineer – Commercial</span>
                                 </div>
+                                <ul>
+                                    <li>Supporting enterprise sales cycles on Datadog's multi-product observability platform (Infrastructure Monitoring, APM, Logging, Security).</li>
+                                    <li>Mapping technical solutions to customer requirements to drive multi-product adoption.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/infegy-logo.webp" alt="Infegy Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://www.infegy.com" target="_blank" rel="noopener noreferrer">Infegy</a></h4>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/infegy-logo.webp" alt="Infegy" class="exp-logo" loading="lazy">
+                            <a href="https://www.infegy.com" class="exp-company" target="_blank" rel="noopener noreferrer">Infegy</a>
+                            <span class="exp-dates">May 2022 – Aug 2025</span>
                         </div>
-                        <div class="cv-date">
-                            <span>May 2022 - August 2025</span>
-                            <span>Kansas City, Missouri, United States</span>
-                        </div>
-                    </div>
-                    <div class="organization-description">A leading social intelligence platform that helps brands and agencies understand public sentiment, track trends, and make data-driven decisions through advanced social listening and analytics.</div>
-                    <div class="cv-nested-roles">
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Solutions & Research Engineer</div>
-                                <div class="cv-nested-role-date">Jul 2024 - August 2025</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Build API-driven tools that transform social data into real-time, actionable insights.</li>
-                                        <li>Created the Brand Risk Dashboard, automating crisis detection for global brands.</li>
-                                        <li>Develop multi-platform social listening solutions beyond Twitter/X, integrating data from Reddit, TikTok, and more.</li>
-                                        <li>Bridge data science and strategy, making complex trends accessible through visual storytelling.</li>
-                                    </ul>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">Solutions & Research Engineer</span>
+                                    <span class="exp-role-dates">Promoted from Lead Analyst</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Lead Analyst</div>
-                                <div class="cv-nested-role-date">May 2022 - Jul 2024</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Translated social data into compelling narratives for brands and agencies.</li>
-                                        <li>Built interactive dashboards and reports to track trends, sentiment, and brand perception.</li>
-                                        <li>Developed data-driven storytelling frameworks, simplifying insights for non-technical audiences.</li>
-                                        <li>Led client projects on competitive intelligence and crisis monitoring, turning insights into strategy.</li>
-                                    </ul>
-                                </div>
+                                <ul>
+                                    <li>Generated $12.4M in pipeline and $7.5M closed-won revenue across sales engineering and content strategy.</li>
+                                    <li>Grew API business to 10% of annual revenue, including the three largest deals in company history.</li>
+                                    <li>Launched Insights by Infegy, writing 106 insight briefs driving $7.3M pipeline and $4.4M closed-won.</li>
+                                    <li>Developed and presented 10 webinars driving $9.9M pipeline and $5.6M closed-won.</li>
+                                    <li>Named one of Social Intelligence Lab's four 2025 Tech Pioneers for innovation in social listening.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/upenn-logo.webp" alt="Penn Engineering Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://www.seas.upenn.edu" target="_blank" rel="noopener noreferrer">Penn Engineering</a></h4>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/upenn-logo.webp" alt="Penn Engineering" class="exp-logo" loading="lazy">
+                            <a href="https://www.seas.upenn.edu" class="exp-company" target="_blank" rel="noopener noreferrer">Penn Engineering</a>
+                            <span class="exp-dates">Dec 2021 – May 2022</span>
                         </div>
-                        <div class="cv-date">
-                            <span>Dec 2021 - May 2022</span>
-                            <span>Philadelphia, Pennsylvania, United States</span>
-                        </div>
-                    </div>
-                    <div class="cv-nested-roles">
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Graduate Teaching Assistant</div>
-                                <div class="cv-nested-role-date">Dec 2021 - May 2022</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Led weekly seminars and office hours for 500 students in Introduction to Computer Systems (CIT 593)</li>
-                                        <li>Taught fundamental concepts of computer systems, C programming, and machine language</li>
-                                        <li>Graded assignments and provided detailed feedback on programming projects</li>
-                                        <li>Assisted students with understanding data representation, program execution, and computer architecture</li>
-                                    </ul>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">Graduate Teaching Assistant</span>
                                 </div>
+                                <ul>
+                                    <li>Led seminars and office hours for 500 students in Introduction to Computer Systems (CIT 593).</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/jackson-county-logo.webp" alt="Jackson County Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://www.jacksoncountyprosecutor.com/" target="_blank" rel="noopener noreferrer">Jackson County Prosecutor's Office</a></h4>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/jackson-county-logo.webp" alt="Jackson County" class="exp-logo" loading="lazy">
+                            <a href="https://www.jacksoncountyprosecutor.com/" class="exp-company" target="_blank" rel="noopener noreferrer">Jackson County Prosecutor's Office</a>
+                            <span class="exp-dates">Nov 2019 – May 2022</span>
                         </div>
-                        <div class="cv-date">
-                            <span>Nov 2019 - May 2022</span>
-                            <span>Kansas City, Missouri Area</span>
-                        </div>
-                    </div>
-                    <div class="organization-description">The largest prosecutor's office in Missouri, serving over 700,000 residents and handling criminal prosecutions in Kansas City and surrounding areas.</div>
-                    <div class="cv-nested-roles">
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Data Analyst</div>
-                                <div class="cv-nested-role-date">Nov 2019 - May 2022</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Led Analysis That Resulted in a 90% Reduction in Charged Narcotics Felonies in Kansas City</li>
-                                        <li>Led Technical Evidence Collection/Analysis of Multiple Homicide Prosecutions</li>
-                                        <li>Received a $340,000 Department of Justice grant to establish a Crime Strategies Unit</li>
-                                        <li>Built automated dashboards to visualize violence and office case data</li>
-                                        <li>Panelist at Kansas City's 2021 Annual Domestic Violence Alliance Conference</li>
-                                        <li>Speaker at DOJ's Bureau of Justice Assistance Forum on Prosecution Innovation</li>
-                                    </ul>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">Data Analyst</span>
                                 </div>
+                                <ul>
+                                    <li>Led technical analysis resulting in the first homicide conviction of a Kansas City Police detective.</li>
+                                    <li>Led research and analysis that reduced Kansas City-charged narcotics felonies by 95%.</li>
+                                    <li>Secured a $350,000 DOJ grant to launch Missouri's first local Crime Strategies Unit.</li>
+                                    <li>Featured speaker at the 2022 International Association of Crime Analysts Conference.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <i class="fas fa-mountain company-icon"></i>
-                            <h4>Career Break</h4>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/manhattan-da-logo.webp" alt="Manhattan DA" class="exp-logo" loading="lazy">
+                            <a href="https://manhattanda.org" class="exp-company" target="_blank" rel="noopener noreferrer">New York County District Attorney's Office</a>
+                            <span class="exp-dates">Jun 2016 – Mar 2019</span>
                         </div>
-                        <div class="cv-date">
-                            <span>Mar 2019 - Nov 2019</span>
-                            <span>United States</span>
-                        </div>
-                    </div>
-                    <div class="cv-nested-roles">
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Travel</div>
-                                <div class="cv-nested-role-date">Mar 2019 - Nov 2019</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Drove through 35 states across the United States</li>
-                                        <li>Hiked 1,200 miles of the Pacific Crest Trail</li>
-                                    </ul>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">Technology Analyst / Consultant</span>
                                 </div>
+                                <ul>
+                                    <li>Led technical analysis in New York's first state-level domestic terrorism homicide case.</li>
+                                    <li>Led a year-long cyber-stalking investigation involving 100 fake accounts that ended in a conviction.</li>
+                                    <li>Testified in 6 homicide and violent felony trials.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/manhattan-da-logo.webp" alt="Manhattan DA Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://manhattanda.org" target="_blank" rel="noopener noreferrer">Manhattan District Attorney's Office</a></h4>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/yale-logo.webp" alt="Yale" class="exp-logo" loading="lazy">
+                            <a href="https://www.yale.edu" class="exp-company" target="_blank" rel="noopener noreferrer">Yale University</a>
+                            <span class="exp-dates">Sep 2013 – Dec 2013</span>
                         </div>
-                        <div class="cv-date">
-                            <span>Jun 2016 - Mar 2019</span>
-                            <span>New York, New York, United States</span>
-                        </div>
-                    </div>
-                    <div class="organization-description">One of the nation's largest and most influential prosecutor's offices, handling criminal prosecutions in Manhattan and setting precedents in criminal justice innovation.</div>
-                    <div class="cv-nested-roles">
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Consultant</div>
-                                <div class="cv-nested-role-date">Sep 2018 - Mar 2019</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Led forensic analysis in New York's first state-level domestic terrorism homicide case</li>
-                                        <li>Conducted deep background research into defendant's internet use to develop motive</li>
-                                        <li>Produced exhibits based on defendant's digital fingerprints that resulted in plea resolution</li>
-                                        <li>Analytical work appeared in New York Times and Washington Post</li>
-                                    </ul>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">Research Assistant</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Technology Analyst</div>
-                                <div class="cv-nested-role-date">Jun 2016 - Sep 2018</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Worked on 12 domestic violence and cold-case homicide investigations</li>
-                                        <li>Led technical evidence collection for a year-long domestic violence stalking investigation</li>
-                                        <li>Taught various seminars on intelligence analysis and exhibit preparation to office</li>
-                                        <li>Testified in New York County Supreme Court in multiple felony trials</li>
-                                    </ul>
-                                </div>
+                                <ul>
+                                    <li>Collected battlefield casualty and desertion data; research published in Jason Lyall's <em>Divided Armies</em> (Princeton University Press, 2020).</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/yale-logo.webp" alt="Yale Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://www.yale.edu" target="_blank" rel="noopener noreferrer">Yale University</a></h4>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/philmont-logo.webp" alt="Philmont" class="exp-logo" loading="lazy">
+                            <a href="https://www.philmontscoutranch.org" class="exp-company" target="_blank" rel="noopener noreferrer">Philmont Scout Ranch</a>
+                            <span class="exp-dates">May 2015 – Aug 2015</span>
                         </div>
-                        <div class="cv-date">
-                            <span>Dec 2012 - May 2016</span>
-                            <span>New Haven, CT</span>
-                        </div>
-                    </div>
-                    <div class="cv-nested-roles">
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Student Technology Coordinator</div>
-                                <div class="cv-nested-role-date">Dec 2012 - May 2016</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Led an eight person team that provided technical support to 800 students, faculty, and staff</li>
-                                        <li>Conducted hardware and software repairs of Apple and Windows computers</li>
-                                    </ul>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">Ranger</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Research Assistant</div>
-                                <div class="cv-nested-role-date">Sep 2013 - Dec 2013</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Collected data on casualties, desertion rates, and other battlefield metrics</li>
-                                        <li>Findings published in Dartmouth College Professor Jason Lyall's book "Divided Armies: Inequality and Battlefield Performance in Modern War" in 2020</li>
-                                    </ul>
-                                </div>
+                                <ul>
+                                    <li>Led 12 backpacking treks for sixty teenagers through the Sangre de Cristo mountains.</li>
+                                    <li>Taught first aid, land navigation, sustainable land use, and ecology.</li>
+                                    <li>Member of New Mexico's second largest search and rescue team.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/philmont-logo.webp" alt="Philmont Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://www.philmontscoutranch.org" target="_blank" rel="noopener noreferrer">Philmont Scout Ranch</a></h4>
-                        </div>
-                        <div class="cv-date">
-                            <span>May 2015 - Aug 2015</span>
-                            <span>Cimarron, NM</span>
-                        </div>
-                    </div>
-                    <div class="organization-description">The Boy Scouts of America's premier high-adventure base, offering wilderness experiences and leadership development programs on 140,177 acres of rugged mountain terrain.</div>
-                    <div class="cv-nested-roles">
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Ranger</div>
-                                <div class="cv-nested-role-date">May 2015 - Aug 2015</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Led 12 individual backpacking treks for sixty teenagers through rugged mountains</li>
-                                        <li>Taught classes on first aid, land navigation, sustainable land use, and ecology</li>
-                                        <li>Member of New Mexico's second largest search and rescue team</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/nga-logo.webp" alt="NGA Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://www.nga.mil" target="_blank" rel="noopener noreferrer">National Geospatial-Intelligence Agency</a></h4>
-                        </div>
-                        <div class="cv-date">
-                            <span>May 2014 - Jul 2014</span>
-                            <span>Springfield, Virginia</span>
-                        </div>
-                    </div>
-                    <div class="organization-description">A combat support agency within the Department of Defense that provides geospatial intelligence to policymakers, military, and intelligence professionals.</div>
-                    <div class="cv-nested-roles">
-                        <div class="cv-nested-role">
-                            <div>
-                                <div class="cv-nested-role-title">Student Intern</div>
-                                <div class="cv-nested-role-date">May 2014 - Jul 2014</div>
-                                <div class="cv-nested-role-content">
-                                    <ul>
-                                        <li>Worked in technology acquisition</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <h3 id="education">Education</h3>
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/upenn-logo.webp" alt="UPenn Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://www.upenn.edu" target="_blank" rel="noopener noreferrer">University of Pennsylvania</a></h4>
-                        </div>
-                        <div class="cv-date">
-                            <span>August 2020 - December 2021</span>
-                            <div class="location">Philadelphia, PA</div>
-                        </div>
-                    </div>
-                    <div class="cv-subtitle">
-                        <div class="job-title">Master of Computer and Information Technology (MCIT)</div>
-                    </div>
-                    <ul>
-                        <li>Core coursework in software development, computer systems, and algorithms</li>
-                    </ul>
-                </div>
+                <div class="exp-list">
 
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div class="cv-company">
-                            <img src="images/webp/yale-logo.webp" alt="Yale Logo" class="company-logo" loading="lazy">
-                            <h4><a href="https://www.yale.edu" target="_blank" rel="noopener noreferrer">Yale University</a></h4>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/upenn-logo.webp" alt="Penn" class="exp-logo" loading="lazy">
+                            <a href="https://www.upenn.edu" class="exp-company" target="_blank" rel="noopener noreferrer">University of Pennsylvania</a>
+                            <span class="exp-dates">Jan 2020 – May 2024</span>
                         </div>
-                        <div class="cv-date">
-                            <span>August 2012 - May 2016</span>
-                            <div class="location">New Haven, CT</div>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">Master of Computer and Information Technology (MCIT)</span>
+                                </div>
+                                <ul>
+                                    <li>Core coursework in software development, computer systems, and algorithms.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="cv-subtitle">
-                        <div class="job-title">Bachelor of Arts in Global Affairs (International Security)</div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <img src="images/webp/yale-logo.webp" alt="Yale" class="exp-logo" loading="lazy">
+                            <a href="https://www.yale.edu" class="exp-company" target="_blank" rel="noopener noreferrer">Yale University</a>
+                            <span class="exp-dates">Sep 2012 – Jun 2016</span>
+                        </div>
+                        <div class="exp-roles">
+                            <div class="exp-role">
+                                <div class="exp-role-header">
+                                    <span class="exp-role-title">B.A. in Global Affairs (International Security)</span>
+                                </div>
+                                <ul>
+                                    <li>Capstone on international arms trafficking in Latin America.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <ul>
-                        <li>Focus on quantitative methods and data analysis in political science</li>
-                        <li>Wrote Capstone Paper on the role of international arms trafficking accross Latin American borders.</li>
-                    </ul>
+
                 </div>
 
                 <h3 id="skills">Technical Skills</h3>
-                <div class="professional-memberships">
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <i class="fas fa-code"></i>
-                                <h4>Programming & Data Analysis</h4>
-                            </div>
+                <div class="skills-groups">
+                    <div class="skill-group">
+                        <span class="skill-group-label">Languages & Analysis</span>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Pandas / NumPy</span>
+                            <span>Scikit-learn</span>
+                            <span>Statistical Modeling</span>
+                            <span>Machine Learning</span>
                         </div>
-                        <div class="organization-description">Core programming languages and data analysis tools for processing and analyzing complex datasets.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Languages & Technologies</div>
-                        </div>
-                        <ul>
-                            <li>Python (Pandas, NumPy, Scikit-learn)</li>
-                            <li>Statistical Analysis & Data Visualization</li>
-                            <li>Machine Learning & Predictive Modeling</li>
-                        </ul>
                     </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <i class="fas fa-database"></i>
-                                <h4>Data Management & Tools</h4>
-                            </div>
+                    <div class="skill-group">
+                        <span class="skill-group-label">Data & Visualization</span>
+                        <div class="tech-stack">
+                            <span>GIS / ArcGIS Pro</span>
+                            <span>QGIS</span>
+                            <span>Interactive Dashboards</span>
+                            <span>ETL / Data Warehousing</span>
+                            <span>Git</span>
                         </div>
-                        <div class="organization-description">Comprehensive suite of data management and visualization tools for handling large-scale datasets.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Platforms & Systems</div>
-                        </div>
-                        <ul>
-                            <li>Geographic Information Systems (GIS)</li>
-                            <li>ArcGIS Pro & QGIS</li>
-                            <li>Data Warehousing & ETL Processes</li>
-                            <li>Version Control (Git)</li>
-                        </ul>
                     </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <i class="fas fa-chart-line"></i>
-                                <h4>Analytics & Visualization</h4>
-                            </div>
+                    <div class="skill-group">
+                        <span class="skill-group-label">Observability & Security</span>
+                        <div class="tech-stack">
+                            <span>Infrastructure Monitoring</span>
+                            <span>APM</span>
+                            <span>Log Management</span>
+                            <span>Network Analysis</span>
+                            <span>LLM Observability</span>
                         </div>
-                        <div class="organization-description">Advanced analytical capabilities for transforming data into actionable insights.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Analysis Methods</div>
-                        </div>
-                        <ul>
-                            <li>Advanced Statistical Analysis</li>
-                            <li>Interactive Data Dashboards</li>
-                            <li>Time Series Analysis</li>
-                            <li>Network Analysis</li>
-                        </ul>
-                    </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <i class="fas fa-shield-alt"></i>
-                                <h4>Law Enforcement Systems</h4>
-                            </div>
-                        </div>
-                        <div class="organization-description">Specialized software and systems for criminal justice and law enforcement applications.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Industry-Specific Tools</div>
-                        </div>
-                        <ul>
-                            <li>Crime Analysis Software</li>
-                            <li>Evidence Management Systems</li>
-                            <li>Law Enforcement Data Standards</li>
-                        </ul>
                     </div>
                 </div>
 
                 <h3 id="memberships">Memberships</h3>
-                <div class="professional-memberships">
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <img src="images/webp/nesa-logo.webp" alt="NESA Logo" class="company-logo" loading="lazy">
-                                <h4><a href="https://nesa.org" target="_blank" rel="noopener noreferrer">National Eagle Scout Association</a></h4>
-                            </div>
-                            <div class="cv-date">
-                                <span>Present</span>
-                            </div>
+                <div class="memberships-list">
+                    <div class="membership-item">
+                        <img src="images/webp/nesa-logo.webp" alt="NESA" class="membership-logo" loading="lazy">
+                        <div class="membership-info">
+                            <a href="https://nesa.org" target="_blank" rel="noopener noreferrer">National Eagle Scout Association</a>
+                            <span>Lifetime Member &middot; Eagle Scout, 2012</span>
                         </div>
-                        <div class="organization-description">Dedicated to supporting and connecting Eagle Scouts, promoting leadership development, and community service.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Lifetime Member</div>
-                        </div>
-                        <ul>
-                            <li>Earned Eagle Scout rank in 2012</li>
-                            <li>Active in local chapter activities and mentoring</li>
-                        </ul>
                     </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <img src="images/webp/psa-logo.webp" alt="PSA Logo" class="company-logo" loading="lazy">
-                                <h4><a href="https://www.philstaff.org" target="_blank" rel="noopener noreferrer">Philmont Staff Association</a></h4>
-                            </div>
-                            <div class="cv-date">
-                                <span>Present</span>
-                            </div>
+                    <div class="membership-item">
+                        <img src="images/webp/psa-logo.webp" alt="Philmont Staff Association" class="membership-logo" loading="lazy">
+                        <div class="membership-info">
+                            <a href="https://www.philstaff.org" target="_blank" rel="noopener noreferrer">Philmont Staff Association</a>
+                            <span>Alumni Member</span>
                         </div>
-                        <div class="organization-description">Unites former staff members of Philmont Scout Ranch, fostering lifelong connections and preserving the ranch's legacy.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Alumni Member</div>
-                        </div>
-                        <ul>
-                            <li>Former staff member at Philmont Scout Ranch</li>
-                            <li>Participate in annual reunions and staff events</li>
-                        </ul>
                     </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <img src="images/webp/iaca-logo.webp" alt="IACA Logo" class="company-logo" loading="lazy">
-                                <h4><a href="https://iaca.net" target="_blank" rel="noopener noreferrer">International Association of Crime Analysts</a></h4>
-                            </div>
-                            <div class="cv-date">
-                                <span>2021 - 2022</span>
-                            </div>
+                    <div class="membership-item">
+                        <img src="images/webp/iaca-logo.webp" alt="IACA" class="membership-logo" loading="lazy">
+                        <div class="membership-info">
+                            <a href="https://iaca.net" target="_blank" rel="noopener noreferrer">International Association of Crime Analysts</a>
+                            <span>Past Member &middot; Featured speaker, 2022 annual conference</span>
                         </div>
-                        <div class="organization-description">Advances the field of crime analysis through professional development, research, and knowledge sharing.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Past Member</div>
-                        </div>
-                        <ul>
-                            <li>Featured speaker at 2022 annual conference</li>
-                        </ul>
                     </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <img src="images/webp/cmc-logo.webp" alt="CMC Logo" class="company-logo" loading="lazy">
-                                <h4><a href="https://www.cmc.org" target="_blank" rel="noopener noreferrer">Colorado Mountain Club</a></h4>
-                            </div>
-                            <div class="cv-date">
-                                <span>Present</span>
-                            </div>
+                    <div class="membership-item">
+                        <img src="images/webp/cmc-logo.webp" alt="Colorado Mountain Club" class="membership-logo" loading="lazy">
+                        <div class="membership-info">
+                            <a href="https://www.cmc.org" target="_blank" rel="noopener noreferrer">Colorado Mountain Club</a>
+                            <span>Member</span>
                         </div>
-                        <div class="organization-description">Promotes mountaineering, climbing, and outdoor recreation while advocating for mountain conservation.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Member</div>
-                        </div>
-                        <ul>
-                            <li>Regular participant in mountaineering and climbing activities</li>
-                            <li>Contributing to local climbing community</li>
-                        </ul>
                     </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <img src="images/webp/aac-logo.webp" alt="AAC Logo" class="company-logo" loading="lazy">
-                                <h4><a href="https://americanalpineclub.org" target="_blank" rel="noopener noreferrer">American Alpine Club</a></h4>
-                            </div>
-                            <div class="cv-date">
-                                <span>Present</span>
-                            </div>
+                    <div class="membership-item">
+                        <img src="images/webp/aac-logo.webp" alt="American Alpine Club" class="membership-logo" loading="lazy">
+                        <div class="membership-info">
+                            <a href="https://americanalpineclub.org" target="_blank" rel="noopener noreferrer">American Alpine Club</a>
+                            <span>Member &middot; Alpine Climbing School graduate, 2025</span>
                         </div>
-                        <div class="organization-description">Advances climbing knowledge and conservation, supporting climbers and protecting climbing areas.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Member</div>
-                        </div>
-                        <ul>
-                            <li>2025 Alpine Climbing School Graduate</li>
-                            <li>Regular participant in mountaineering and climbing activities</li>
-                        </ul>
                     </div>
-
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div class="cv-company">
-                                <img src="images/webp/sil-logo.webp" alt="SIL Logo" class="company-logo" loading="lazy">
-                                <h4><a href="https://www.socialintelligencelab.com" target="_blank" rel="noopener noreferrer">Social Intelligence Lab</a></h4>
-                            </div>
-                            <div class="cv-date">
-                                <span>Present</span>
-                            </div>
+                    <div class="membership-item">
+                        <img src="images/webp/sil-logo.webp" alt="Social Intelligence Lab" class="membership-logo" loading="lazy">
+                        <div class="membership-info">
+                            <a href="https://www.socialintelligencelab.com" target="_blank" rel="noopener noreferrer">Social Intelligence Lab</a>
+                            <span>Insider 50 &middot; Named a 2025 Tech Pioneer in social listening</span>
                         </div>
-                        <div class="organization-description">Recognizes and connects innovators in social intelligence, driving industry advancement and thought leadership.</div>
-                        <div class="cv-subtitle">
-                            <div class="job-title">Social Intelligence Insider 50</div>
-                        </div>
-                        <ul>
-                            <li>Named one of four 2025 Tech Pioneers for innovation in social listening</li>
-                            <li>Contributing to industry research and development</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -1136,30 +860,32 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Interests</h2>
-                    <p>When I'm not working, I'm an avid international climber and backpacker!</p>
-                    
+                    <p>Time outdoors has been as formative as any job I've had. Guiding teenagers through New Mexico's mountains and hiking 1,250 miles of the PCT solo taught me to stay calm, lead under pressure, and make good calls with imperfect information.</p>
+
                     <div class="interests-grid">
                         <div class="interests-item">
                             <div class="interests-header">
                                 <i class="fas fa-hiking"></i>
-                                <h3>Past Highlights</h3>
+                                <h3>Adventures</h3>
                             </div>
                             <ul>
-                                <li>20,000 ft. climb in Bolivia of Huayna Potosi</li>
-                                <li>1,250 mile trip along the Pacific Crest Trail in California and Washington</li>
-                                <li>50 mile off-trail trek through the southern Sierra Nevadas</li>
-                                <li>90 mile trek along the Continental Divide Trail in Wyoming's Wind Rivers</li>
+                                <li>1,250 miles of the Pacific Crest Trail, solo, through California and Washington, stopped by early snowpack in the North Cascades</li>
+                                <li>20,000 ft. summit of Huayna Potosi in Bolivia</li>
+                                <li>50 miles off-trail through the southern Sierra Nevadas</li>
+                                <li>90 miles along the Continental Divide Trail in Wyoming's Wind Rivers</li>
                             </ul>
                         </div>
 
                         <div class="interests-item">
                             <div class="interests-header">
                                 <i class="fas fa-certificate"></i>
-                                <h3>Professional Experience</h3>
+                                <h3>Outdoor Professional</h3>
                             </div>
                             <ul>
-                                <li>Working as a professional backpacking guide in New Mexico</li>
-                                <li>Former NOLS Wilderness First Responder/Nationally Certified EMT/B</li>
+                                <li>Professional backpacking guide at Philmont Scout Ranch in New Mexico, leading 12 treks for 60+ teenagers through rugged terrain</li>
+                                <li>Eagle Scout</li>
+                                <li>Former NOLS Wilderness First Responder and nationally certified EMT/B</li>
+                                <li>Member of New Mexico's second largest search and rescue team</li>
                             </ul>
                         </div>
                     </div>
@@ -1179,7 +905,8 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Contact</h2>
-                    <p>I'm always interested in connecting with others in the data science and research community. Whether you have a question about my work, want to collaborate on a project, or just want to chat about data analysis and technology, feel free to reach out.</p>
+                    <p>I'm at Datadog and open to conversations about roles in observability, data infrastructure, or developer-focused products.</p>
+                    <p>Happy to discuss my criminal intelligence work, social data research, or anything data-related.</p>
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -1220,94 +947,6 @@
         </div>
     </footer>
 
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="header_graph.js"></script>
-    <script>
-        // Navbar scroll effect
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.background = 'var(--light-bg)';
-                navbar.style.boxShadow = 'none';
-            }
-        });
-
-        // Active link highlighting
-        const sections = document.querySelectorAll('section[id]');
-        const navigationLinks = document.querySelectorAll('.nav-links a');
-
-        function highlightNavLink() {
-            const scrollY = window.pageYOffset;
-            const windowHeight = window.innerHeight;
-
-            // Find the copyright section and contact nav link
-            const copyrightSection = document.querySelector('footer');
-            const contactNavLink = document.querySelector('.nav-links a[href="#contact"]');
-            
-            if (copyrightSection && contactNavLink) {
-                const copyrightTop = copyrightSection.offsetTop;
-                
-                // Check if copyright section is visible
-                if (scrollY + windowHeight >= copyrightTop) {
-                    // Remove active class from all other links
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    contactNavLink.classList.add('active');
-                }
-            }
-
-            // Handle other sections normally
-            sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
-                const sectionId = section.getAttribute('id');
-                
-                // Skip if we're in the copyright section
-                if (scrollY + windowHeight >= copyrightSection.offsetTop) return;
-                
-                const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-                if (navLink) {
-                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                        navLink.classList.add('active');
-                    } else {
-                        navLink.classList.remove('active');
-                    }
-                }
-            });
-        }
-
-        window.addEventListener('scroll', highlightNavLink);
-        window.addEventListener('load', highlightNavLink);
-
-        // Mobile menu toggle
-        const menuButton = document.querySelector('.menu-button');
-        const mobileNavLinks = document.querySelector('.nav-links');
-
-        menuButton.addEventListener('click', () => {
-            mobileNavLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileNavLinks.contains(e.target) && !menuButton.contains(e.target)) {
-                mobileNavLinks.classList.remove('active');
-            }
-        });
-
-        // Add this new code: Close mobile menu when clicking any nav link
-        const allNavLinks = document.querySelectorAll('.nav-links a, .dropdown-trigger');
-        allNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {  // Only on mobile
-                    mobileNavLinks.classList.remove('active');
-                }
-            });
-        });
-    </script>
     <script src="script.js"></script>
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
