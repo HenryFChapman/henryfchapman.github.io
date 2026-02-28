@@ -26,7 +26,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/webp/apple-touch-icon.webp">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
@@ -37,7 +36,11 @@
                 </div>
             </a>
             <button class="menu-button" aria-label="Toggle navigation menu" aria-expanded="false">
-                <i class="fas fa-bars" aria-hidden="true"></i>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <rect y="3" width="20" height="2" rx="1"/>
+                    <rect y="9" width="20" height="2" rx="1"/>
+                    <rect y="15" width="20" height="2" rx="1"/>
+                </svg>
             </button>
             <div class="nav-links">
                 <a href="#about">About</a>
@@ -87,7 +90,7 @@
             </div>
             <div class="hero-image">
                 <div class="image-circle">
-                    <img src="images/webp/profile.webp" alt="Henry Chapman">
+                    <img src="images/webp/profile.webp" alt="Henry Chapman" fetchpriority="high" width="500" height="500">
                 </div>
             </div>
         </div>
