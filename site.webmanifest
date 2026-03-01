@@ -3,12 +3,12 @@
     "short_name": "HFC",
     "icons": [
         {
-            "src": "images/webp/android-chrome-192x192.webp",
+            "src": "images/android-chrome-192x192.webp",
             "sizes": "192x192",
             "type": "image/webp"
         },
         {
-            "src": "images/webp/android-chrome-512x512.webp",
+            "src": "images/android-chrome-512x512.webp",
             "sizes": "512x512",
             "type": "image/webp"
         }
