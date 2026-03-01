@@ -676,13 +676,21 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
-        padding: 1.5rem;
+        padding: 1rem;
         margin-top: 1rem;
-        background: rgba(255, 255, 255, 0.35);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
         box-shadow: none;
+        border-radius: 0;
+    }
+
+    .hero-main {
+        background: rgba(255, 255, 255, 0.93);
         border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 24px rgba(43, 108, 176, 0.08);
+        width: 100%;
     }
 
     .hero-main h1 {
