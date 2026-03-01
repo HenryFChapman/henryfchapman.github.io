@@ -9,7 +9,7 @@ Personal portfolio for Henry F. Chapman, Sales Engineer @ Datadog. Covers a care
 - **About** — Background, career narrative, and key stats
 - **Social Intelligence** — Insight briefs, presentations, and technical projects
 - **Criminal Intelligence** — Notable cases, technical projects, and talks
-- **Resume** — Experience, education, technical skills, and memberships
+- **Resume** — Experience, education, technical skills, certifications, and memberships
 - **Interests** — Personal interests and activities
 - **Contact** — Targeted outreach for observability and data infrastructure roles
 
@@ -28,8 +28,7 @@ index.html          Main page
 styles.css          All styles (CSS variables, responsive design)
 script.js           All JS (nav, scroll, canvas animation, mobile menu)
 aboutme/            Redirect page → /
-images/             Image assets
-images/webp/        WebP versions of images
+images/             WebP image assets (logos, thumbnails, favicons)
 ```
 
 ## Development
