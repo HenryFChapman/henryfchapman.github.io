@@ -758,10 +758,13 @@ footer {
     font-size: 1.1rem;
 }
 
-.contact-item i {
+.contact-item i,
+.contact-item svg {
     font-size: 1.5rem;
     color: var(--primary-color);
     width: 30px;
+    height: 30px;
+    flex-shrink: 0;
     text-align: center;
 }
 
@@ -820,9 +823,11 @@ footer {
         gap: 0.75rem;
     }
     
-    .contact-item i {
+    .contact-item i,
+    .contact-item svg {
         font-size: 1.25rem;
         width: 25px;
+        height: 25px;
     }
     
     .social-links {
@@ -1331,11 +1336,16 @@ footer {
     box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
 }
 
-.expand-button i {
+.expand-button i,
+.expand-button svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
     transition: transform 0.3s ease;
 }
 
-.expand-button.expanded i {
+.expand-button.expanded i,
+.expand-button.expanded svg {
     transform: rotate(180deg);
 }
 
@@ -1992,6 +2002,11 @@ footer {
     border-radius: 12px;
 }
 
+.interests-header i svg {
+    width: 2rem;
+    height: 2rem;
+}
+
 .interests-header h3 {
     font-size: 1.5rem;
     color: var(--gray-dark);
@@ -2061,6 +2076,11 @@ footer {
         font-size: 1.5rem;
         width: 2.5rem;
         height: 2.5rem;
+    }
+
+    .interests-header i svg {
+        width: 1.5rem;
+        height: 1.5rem;
     }
 
     .interests-header h3 {
