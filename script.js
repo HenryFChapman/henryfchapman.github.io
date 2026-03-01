@@ -19,6 +19,7 @@ const observer = new IntersectionObserver((entries) => {
 
 let heroAnimId = null;
 let heroCanvas = null;
+const heroMouse = { x: null, y: null };
 
 function createParticleNetwork() {
     if (heroAnimId) {
@@ -37,6 +38,18 @@ function createParticleNetwork() {
         heroCanvas.setAttribute('aria-hidden', 'true');
         Object.assign(heroCanvas.style, { position: 'absolute', top: '0', left: '0' });
         container.appendChild(heroCanvas);
+
+        // Track mouse over the hero section
+        const heroSection = container.parentElement;
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroCanvas.getBoundingClientRect();
+            heroMouse.x = e.clientX - rect.left;
+            heroMouse.y = e.clientY - rect.top;
+        });
+        heroSection.addEventListener('mouseleave', () => {
+            heroMouse.x = null;
+            heroMouse.y = null;
+        });
     }
     // Resizing clears the canvas automatically
     heroCanvas.width = width;
@@ -56,10 +69,15 @@ function createParticleNetwork() {
 
     const CONNECTION_DIST = 160;
     const CONNECTION_DIST_SQ = CONNECTION_DIST * CONNECTION_DIST;
+    const MOUSE_CONNECT_DIST = 200;
+    const MOUSE_CONNECT_DIST_SQ = MOUSE_CONNECT_DIST * MOUSE_CONNECT_DIST;
+    const MOUSE_REPEL_DIST = 100;
+    const MOUSE_REPEL_DIST_SQ = MOUSE_REPEL_DIST * MOUSE_REPEL_DIST;
 
     function tick() {
         ctx.clearRect(0, 0, width, height);
 
+        // Particle-to-particle connections
         ctx.strokeStyle = '#2b6cb0';
         ctx.lineWidth = 0.8;
         for (let i = 0; i < particles.length - 1; i++) {
@@ -78,6 +96,47 @@ function createParticleNetwork() {
             }
         }
 
+        // Mouse interactions
+        if (heroMouse.x !== null) {
+            ctx.strokeStyle = '#00b5d8';
+            ctx.lineWidth = 1;
+            particles.forEach(p => {
+                const dx = p.x - heroMouse.x;
+                const dy = p.y - heroMouse.y;
+                const distSq = dx * dx + dy * dy;
+                if (distSq < MOUSE_CONNECT_DIST_SQ) {
+                    const dist = Math.sqrt(distSq);
+                    // Connection line from cursor to particle
+                    ctx.globalAlpha = (1 - dist / MOUSE_CONNECT_DIST) * 0.55;
+                    ctx.beginPath();
+                    ctx.moveTo(heroMouse.x, heroMouse.y);
+                    ctx.lineTo(p.x, p.y);
+                    ctx.stroke();
+                    // Repulsion force
+                    if (distSq < MOUSE_REPEL_DIST_SQ && dist > 0) {
+                        const force = (1 - dist / MOUSE_REPEL_DIST) * 0.3;
+                        p.vx += (dx / dist) * force;
+                        p.vy += (dy / dist) * force;
+                    }
+                }
+            });
+
+            // Glowing cursor dot
+            const glow = ctx.createRadialGradient(heroMouse.x, heroMouse.y, 0, heroMouse.x, heroMouse.y, 14);
+            glow.addColorStop(0, 'rgba(0,181,216,0.5)');
+            glow.addColorStop(1, 'rgba(0,181,216,0)');
+            ctx.globalAlpha = 1;
+            ctx.beginPath();
+            ctx.arc(heroMouse.x, heroMouse.y, 14, 0, Math.PI * 2);
+            ctx.fillStyle = glow;
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(heroMouse.x, heroMouse.y, 3, 0, Math.PI * 2);
+            ctx.fillStyle = '#00b5d8';
+            ctx.fill();
+        }
+
+        // Draw & update particles
         ctx.globalAlpha = 0.7;
         particles.forEach(p => {
             ctx.beginPath();
@@ -86,6 +145,15 @@ function createParticleNetwork() {
             ctx.fill();
             p.x += p.vx;
             p.y += p.vy;
+            // Decay any velocity above the natural speed
+            const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+            if (speed > 2) {
+                p.vx = (p.vx / speed) * 2;
+                p.vy = (p.vy / speed) * 2;
+            } else if (speed > 0.56) {
+                p.vx *= 0.98;
+                p.vy *= 0.98;
+            }
             if (p.x < 0 || p.x > width) p.vx *= -1;
             if (p.y < 0 || p.y > height) p.vy *= -1;
         });
@@ -223,7 +291,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const grid = this.previousElementSibling;
             const isCollapsed = grid.classList.contains('collapsed');
             grid.classList.toggle('collapsed', !isCollapsed);
-            this.textContent = isCollapsed ? 'Show Less' : 'Show More';
+            // Update text node only — preserve the SVG icon child
+            const svg = this.querySelector('svg');
+            this.textContent = isCollapsed ? 'Show Less ' : 'Show More ';
+            if (svg) this.appendChild(svg);
             this.classList.toggle('expanded', isCollapsed);
         });
     });

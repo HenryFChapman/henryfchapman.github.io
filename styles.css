@@ -1366,7 +1366,7 @@ footer {
 }
 
 .insight-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -1386,7 +1386,7 @@ footer {
 }
 
 .insight-item:hover .insight-image img {
-    transform: scale(1.05);
+    transform: scale(1);
 }
 
 .insight-content {
