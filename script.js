@@ -269,15 +269,19 @@ function createDotGrid() {
 // ── Page initialisation ────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', function() {
-    createParticleNetwork();
-    createDotGrid();
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Debounced resize: refit canvas on window resize
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(createParticleNetwork, 150);
-    });
+    if (!reducedMotion) {
+        createParticleNetwork();
+        createDotGrid();
+
+        // Debounced resize: refit canvas on window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(createParticleNetwork, 150);
+        });
+    }
 
     const navbar = document.querySelector('.navbar');
     const sections = document.querySelectorAll('section[id]');
