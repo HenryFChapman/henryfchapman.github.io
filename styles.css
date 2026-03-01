@@ -393,6 +393,7 @@ section {
 
 main {
     position: relative;
+    isolation: isolate;
     background-image: radial-gradient(circle, rgba(43, 108, 176, 0.14) 1.5px, transparent 1.5px);
     background-size: 32px 32px;
 }
