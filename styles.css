@@ -1808,9 +1808,8 @@ footer {
 
 .skill-group {
     display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .skill-group-label {
@@ -1824,12 +1823,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .skill-group {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
     .skill-group-label {
         min-width: 0;
         white-space: normal;
@@ -1840,7 +1833,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin: 1rem 0;
+    margin: 0;
 }
 
 .tech-stack span {
