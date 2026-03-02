@@ -26,6 +26,26 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.webp">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        (function(h,o,u,n,d) {
+            h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+            d=o.createElement(u);d.async=1;d.src=n;d.crossOrigin=''
+            n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+        })(window,document,'script','https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js','DD_RUM')
+        window.DD_RUM.onReady(function() {
+            window.DD_RUM.init({
+                clientToken: 'pubb901641e43d6a0f5487a79f7a6cb2298',
+                applicationId: 'faa088ff-3ab3-490a-b9ca-c5ef1f472a24',
+                site: 'datadoghq.com',
+                service: 'my-portfolio',
+                env: 'prod',
+                sessionSampleRate: 100,
+                sessionReplaySampleRate: 20,
+                trackBfcacheViews: true,
+                defaultPrivacyLevel: 'mask-user-input',
+            });
+        })
+    </script>
 </head>
 <body>
     <nav class="navbar">
