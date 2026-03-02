@@ -270,8 +270,9 @@ function createDotGrid() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    if (!reducedMotion) {
+    if (!reducedMotion && !isMobile) {
         createParticleNetwork();
         createDotGrid();
 
