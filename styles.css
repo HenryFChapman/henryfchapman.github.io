@@ -540,6 +540,16 @@ h3 {
     font-weight: normal;
 }
 
+.exp-role ul li ul {
+    margin-top: 0.2rem;
+    padding-left: 0.85rem;
+}
+
+.exp-role ul li ul li::before {
+    content: "·";
+    font-weight: bold;
+}
+
 .exp-role ul li a {
     color: var(--blue);
     text-decoration: none;
