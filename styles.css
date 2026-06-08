@@ -2129,7 +2129,22 @@ footer {
     }
 
     .interests-gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 3px;
+    }
+
+    .interests-gallery figure:nth-child(n) {
+        grid-column: auto;
+        height: 180px;
+    }
+
+    .interests-gallery img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .interests-gallery figcaption {
+        opacity: 1;
     }
 
     .interests-item {
