@@ -393,6 +393,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Lightbox for interests gallery
+    (function() {
+        const figures = Array.from(document.querySelectorAll('.interests-gallery figure'));
+        const lightbox = document.getElementById('lightbox');
+        if (!lightbox || !figures.length) return;
+
+        const lbImg = lightbox.querySelector('.lightbox-img');
+        const lbCaption = lightbox.querySelector('.lightbox-caption');
+        let current = 0;
+
+        function show(index) {
+            current = (index + figures.length) % figures.length;
+            const img = figures[current].querySelector('img');
+            const cap = figures[current].querySelector('figcaption');
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lbCaption.textContent = cap ? cap.textContent : '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function close() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        figures.forEach((fig, i) => fig.addEventListener('click', () => show(i)));
+        lightbox.querySelector('.lightbox-close').addEventListener('click', close);
+        lightbox.querySelector('.lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); show(current - 1); });
+        lightbox.querySelector('.lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); show(current + 1); });
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') close();
+            if (e.key === 'ArrowLeft') show(current - 1);
+            if (e.key === 'ArrowRight') show(current + 1);
+        });
+    })();
+
     // Expand/collapse for insights grid
     document.querySelectorAll('.expand-button').forEach(button => {
         button.addEventListener('click', function() {
