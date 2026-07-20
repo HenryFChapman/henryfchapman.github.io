@@ -262,7 +262,11 @@ function createDotGrid() {
     });
 
     main.addEventListener('mouseleave', () => { lastCol = null; lastRow = null; });
-    window.addEventListener('resize', resize);
+
+    // ResizeObserver (not just window resize) so late-loading content — e.g. the
+    // interests gallery images — that grows main's height after initial load
+    // still gets picked up and the canvas isn't left shorter than the page.
+    new ResizeObserver(resize).observe(main);
     resize();
 }
 

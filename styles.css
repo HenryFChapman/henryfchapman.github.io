@@ -1697,7 +1697,6 @@ footer {
 .dropdown-content a:hover {
     background-color: rgba(43, 108, 176, 0.05);
     color: var(--blue);
-    transform: translateX(4px);
 }
 
 /* Mobile Responsive */
