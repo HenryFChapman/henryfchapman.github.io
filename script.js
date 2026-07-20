@@ -320,6 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth scroll for navigation links
     navLinks.forEach(link => {
+        if (!link.getAttribute('href').startsWith('#')) return;
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').slice(1);

@@ -1699,6 +1699,19 @@ footer {
     color: var(--blue);
 }
 
+.dropdown-content a.dropdown-download {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(43, 108, 176, 0.1);
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.dropdown-content a.dropdown-download:hover {
+    background: linear-gradient(90deg, rgba(43, 108, 176, 0.12), rgba(0, 181, 216, 0.12));
+    color: var(--blue);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .dropdown-content {
