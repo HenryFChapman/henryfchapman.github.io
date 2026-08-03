@@ -8,8 +8,10 @@
   \usepackage{fancyhdr}
   \usepackage[english]{babel}
   \usepackage[sfdefault]{roboto}
-  \input{glyphtounicode}
-  \pdfgentounicode=1
+  \ifdefined\pdfglyphtounicode
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+  \fi
 
   \pagestyle{fancy}
   \fancyhf{}
@@ -80,7 +82,7 @@
 
 \vspace{-2pt}
 \section{Summary}
-\small{Sales Engineer II at Datadog, promoted off-cycle, with 148\% H1 2026 attainment and a 100\% technical win rate across 26 evaluations. Previously grew Infegy's API business to 10\% of annual revenue and influenced \$7.5M in closed-won revenue. Started in criminal intelligence analysis for the Manhattan DA and Kansas City prosecutors, contributing forensic work to landmark homicide and police-accountability cases.}
+\small{Sales Engineer II at Datadog, promoted off-cycle, with 154\% H1 2026 attainment and a 100\% technical win rate across 26 evaluations. Previously grew Infegy's API business to 10\% of annual revenue and influenced \$7.5M in closed-won revenue. Started in criminal intelligence analysis for the Manhattan DA and Kansas City prosecutors, contributing forensic work to landmark homicide and police-accountability cases.}
 
   %-----------EXPERIENCE-----------
   \section{Experience}
@@ -90,9 +92,8 @@
         {Sales Engineer II (Commercial) (Promoted from Sales Engineer)}{Denver, CO}
 \resumeItemListStart
   \resumeItem{Promoted off-cycle after 11 months, ahead of Datadog's standard SE promotion timeline.}
-  \resumeItem{Tied for the most new logos closed (18) among 17 Commercial West SEs (YTD 2026).}
-  \resumeItem{148\% of H1 2026 quota attainment.}
-  \resumeItem{Closed the 3rd-largest deal in Commercial West (Q1 2026).}
+  \resumeItem{H1 2026 Win Hero Award, recognizing the most Sales Engineering wins in Commercial West with 19 new logos.}
+  \resumeItem{154\% of H1 2026 quota attainment; closed the 3rd-largest deal in Commercial West (Q1 2026).}
   \resumeItem{Maintained a 100\% technical win rate across 26 pre-sales evaluations and POC deployments.}
 \resumeItemListEnd
 \resumeSubheading{Infegy}{May 2022 -- August 2025}
