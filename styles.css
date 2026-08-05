@@ -2091,8 +2091,8 @@ footer {
     overflow: hidden;
 }
 
-.interests-gallery figure:nth-child(1) { grid-column: 1 / 10; }
-.interests-gallery figure:nth-child(2) { grid-column: 10 / 14; }
+.interests-gallery figure:nth-child(1) { grid-column: 1 / 5; }
+.interests-gallery figure:nth-child(2) { grid-column: 5 / 14; }
 .interests-gallery figure:nth-child(3) { grid-column: 1 / 10; }
 .interests-gallery figure:nth-child(4) { grid-column: 10 / 14; }
 .interests-gallery figure:nth-child(5) { grid-column: 1 / 5; }
