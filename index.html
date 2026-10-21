@@ -25,6 +25,9 @@
     <link rel="icon" type="image/webp" sizes="16x16" href="images/favicon-16x16.webp">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.webp">
     <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,50,0&display=swap">
     <link rel="stylesheet" href="styles.css">
     <script>
         (function(h,o,u,n,d) {
@@ -94,28 +97,27 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <div class="hero-main">
-                <h1>Henry F. Chapman</h1>
-                <h2>Sales Engineer @ Datadog</h2>
-                <div class="hero-description">
-                    <p>My work has spanned violent crime analysis in New York, social trends for Fortune 500 brands, and infrastructure observability for startups and growing teams. Based in Denver, CO.</p>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#about" class="btn-explore">Explore My Work</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-circle">
-                    <img src="images/profile.webp" alt="Henry Chapman" fetchpriority="high" width="600" height="900">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-main">
+                    <h1>Henry F. Chapman</h1>
+                    <h2>Sales Engineer @ Datadog</h2>
+                    <div class="hero-description">
+                        <p>My work has spanned violent crime analysis in New York, social trends for Fortune 500 brands, and infrastructure observability for startups and growing teams. Based in Denver, CO.</p>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn-explore">Explore My Work</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-circle">
+                        <img src="images/profile.webp" alt="Henry Chapman" fetchpriority="high" width="600" height="900">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="about-section">
             <div class="about-content">
                 <div class="about-image">
@@ -583,9 +585,9 @@
             <div id="insights" class="subsection">
                 <div class="subsection-header">
                     <h3>Insight Briefs</h3>
-                    <p>During three years at Infegy, I published over 100 insight briefs on brand, cultural, and political trends in social media. A sample of recent work is below.</p>
+                    <p>During three years at Infegy, I published <a href="https://www.infegy.com/insight-brief" target="_blank" rel="noopener noreferrer">over 100 insight briefs</a> on brand, cultural, and political trends in social media. A sample of recent work is below.</p>
                 </div>
-                <div class="insights-grid collapsed">
+                <div class="insights-grid">
                     <div class="insight-item">
                         <div class="insight-image">
                             <img src="images/southwest-thumbnail.webp" alt="Southwest Airlines Analysis" loading="lazy">
@@ -595,18 +597,6 @@
                             <h3>Southwest Airlines Faces Backlash Over Checked Bag Policy</h3>
                             <p>How social listening reveals brand risks in 2025 and the impact of policy changes on customer sentiment.</p>
                             <a href="https://www.infegy.com/insight-brief/southwest-airlines-faces-backlash-over-checked-bag-policy" class="insight-link" target="_blank" rel="noopener noreferrer">Read More →</a>
-                        </div>
-                    </div>
-
-                    <div class="insight-item">
-                        <div class="insight-image">
-                            <img src="images/superbowl-2025-thumbnail.webp" alt="Super Bowl 2025 Analysis" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">February 13, 2025</div>
-                            <h3>Analyzing 2025 Super Bowl Ad Performance</h3>
-                            <p>A deep dive into social media engagement and sentiment around Super Bowl commercials.</p>
-                            <a href="https://www.infegy.com/insight-brief/2025-superbowl-ad-performance" class="insight-link" target="_blank" rel="noopener noreferrer">Read More →</a>
                         </div>
                     </div>
 
@@ -624,18 +614,6 @@
 
                     <div class="insight-item">
                         <div class="insight-image">
-                            <img src="images/youtube-search-thumbnail.webp" alt="YouTube Search API Analysis" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">February 4, 2025</div>
-                            <h3>Using YouTube Search For Custom Data Collection</h3>
-                            <p>Learn how to leverage YouTube's search API to gather custom data for your research and analysis needs.</p>
-                            <a href="https://www.infegy.com/insight-brief/using-youtube-search-for-custom-data-collection" class="insight-link" target="_blank" rel="noopener noreferrer">Read More →</a>
-                        </div>
-                    </div>
-
-                    <div class="insight-item">
-                        <div class="insight-image">
                             <img src="images/election-coverage-thumbnail.webp" alt="Election Social Media Analysis" loading="lazy">
                         </div>
                         <div class="insight-content">
@@ -645,22 +623,6 @@
                             <a href="https://www.infegy.com/insight-brief/election-coverage-reflects-changing-audiences-across-major-social-platforms" class="insight-link" target="_blank" rel="noopener noreferrer">Read More →</a>
                         </div>
                     </div>
-
-                    <div class="insight-item">
-                        <div class="insight-image">
-                            <img src="images/project-2025-thumbnail.webp" alt="Project 2025 Analysis" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">October 31, 2024</div>
-                            <h3>Project 2025: Shifts in Political Discourse</h3>
-                            <p>Examining how political narratives evolved and shaped public discourse throughout the year.</p>
-                            <a href="https://www.infegy.com/insight-brief/project-2025-and-its-shifting-political-persona-through-social-listening-insights" class="insight-link" target="_blank" rel="noopener noreferrer">Read More →</a>
-                        </div>
-                    </div>
-                </div>
-                <button class="expand-button">Show More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg></button>
-                <div class="insights-footer">
-                    <a href="https://www.infegy.com/insight-brief" class="btn" target="_blank" rel="noopener noreferrer">View All Insight Briefs</a>
                 </div>
             </div>
 
@@ -668,32 +630,9 @@
             <div id="talks" class="subsection">
                 <div class="subsection-header">
                     <h3>Presentations</h3>
-                    <p>Led 10 webinars and conference presentations at Infegy on social listening methodology, API capabilities, and consumer intelligence, driving $9.9M in pipeline.</p>
+                    <p>Led <a href="https://www.infegy.com/resources/videos" target="_blank" rel="noopener noreferrer">10 webinars and conference presentations</a> at Infegy on social listening methodology, API capabilities, and consumer intelligence, driving $9.9M in pipeline.</p>
                 </div>
-                <div class="insights-grid collapsed">
-                    <div class="insight-item">
-                        <div class="insight-image">
-                            <img src="images/Infegy API Webinar Signal Theory.webp" alt="API Webinar Signal Theory" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">April 2025</div>
-                            <h3>Cool Sh!t: The Infegy API's Limitless Possibilities</h3>
-                            <p>Discover how anyone (technical or not) can build powerful, scalable AI-driven apps using the Infegy API and no-code tools.</p>
-                            <a href="https://www.infegy.com/infegy-api-creating-insights" class="insight-link" target="_blank" rel="noopener noreferrer">Watch Now →</a>
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-image">
-                            <img src="images/romantasy-webinar-thumbnail.webp" alt="Romantasy Webinar" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">February 2025</div>
-                            <h3>Romantasy: Finding Trends In Social And Non-Social Sources</h3>
-                            <p>An exploration of how to discover new trends using social and Goodreads data, featuring insights from Kris Longfield of Fanthropology.</p>
-                            <a href="https://www.infegy.com/resources/v/romantasy-finding-trends-in-social-and-non-social-sources" class="insight-link" target="_blank" rel="noopener noreferrer">Watch Now →</a>
-                        </div>
-                    </div>
-
+                <div class="insights-grid">
                     <div class="insight-item">
                         <div class="insight-image">
                             <img src="images/election-webinar-thumbnail.webp" alt="Election Webinar" loading="lazy">
@@ -720,18 +659,6 @@
 
                     <div class="insight-item">
                         <div class="insight-image">
-                            <img src="images/healthcare-webinar-thumbnail.webp" alt="Healthcare Webinar" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">December 2024</div>
-                            <h3>Pulse Check: Exploring Healthcare and Pharma through Social Vitals</h3>
-                            <p>Deep dive into insights surrounding the healthcare and pharmaceutical industries, including patient journeys and provider interactions.</p>
-                            <a href="https://www.infegy.com/resources/v/exploring-healthcare-pharma-social" class="insight-link" target="_blank" rel="noopener noreferrer">Watch Now →</a>
-                        </div>
-                    </div>
-
-                    <div class="insight-item">
-                        <div class="insight-image">
                             <img src="images/starscape-webinar-thumbnail.webp" alt="Starscape API Webinar" loading="lazy">
                         </div>
                         <div class="insight-content">
@@ -741,22 +668,6 @@
                             <a href="https://www.infegy.com/resources/v/starscape-api" class="insight-link" target="_blank" rel="noopener noreferrer">Watch Now →</a>
                         </div>
                     </div>
-
-                    <div class="insight-item">
-                        <div class="insight-image">
-                            <img src="images/trends-webinar-thumbnail.webp" alt="Trends Webinar" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">December 2023</div>
-                            <h3>Future Forward: 2023 Unwrapped, 2024 Preview</h3>
-                            <p>Analysis of top trends in social media conversations for 2023 and predictions for 2024.</p>
-                            <a href="https://www.infegy.com/resources/v/future-forward-trends" class="insight-link" target="_blank" rel="noopener noreferrer">Watch Now →</a>
-                        </div>
-                    </div>
-                </div>
-                <button class="expand-button">Show More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg></button>
-                <div class="insights-footer">
-                    <a href="https://www.infegy.com/resources/videos" class="btn" target="_blank" rel="noopener noreferrer">View All Presentations</a>
                 </div>
             </div>
 
@@ -764,9 +675,9 @@
             <div id="software" class="subsection">
                 <div class="subsection-header">
                     <h3>Technical Projects</h3>
-                    <p>Tools and dashboards built with Infegy's APIs.</p>
+                    <p><a href="https://www.infegy.com/resources/dashboards" target="_blank" rel="noopener noreferrer">Tools and dashboards</a> built with Infegy's APIs.</p>
                 </div>
-                <div class="insights-grid collapsed">
+                <div class="insights-grid">
                     <div class="insight-item">
                         <div class="insight-image">
                             <img src="images/fear + cheer.webp" alt="Infegy's Fear + Cheer Index" loading="lazy">
@@ -799,37 +710,6 @@
                     </div>
                     <div class="insight-item">
                         <div class="insight-image">
-                            <img src="images/trusted-brands-thumbnail.webp" alt="Most Trusted Brands Dashboard" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">December 2023 – January 2024</div>
-                            <h3>Most Trusted Brands Dashboard</h3>
-                            <p>Built Infegy's Most Trusted Brands dashboard using vanilla JavaScript and CSS, with a Python script to update the fields. Features 20 global brands ranked by their 2023 Infegy Trust score.</p>
-                            <div class="tech-stack">
-                                <span>Python</span>
-                                <span>Vanilla JS/CSS/HTML</span>
-                                <span>Infegy Starscape API</span>
-                            </div>
-                            <a href="https://www.infegy.com/most-trusted-brands-dashboard-gated" class="insight-link" target="_blank" rel="noopener noreferrer">View Dashboard →</a>
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-image">
-                            <img src="images/lumen-thumbnail.webp" alt="The Lumen Social Intelligence Barometer" loading="lazy">
-                        </div>
-                        <div class="insight-content">
-                            <div class="insight-date">February 2023 – March 2023</div>
-                            <h3>The Lumen: A Social Intelligence Barometer</h3>
-                            <p>Built using vanilla JavaScript and CSS, with recurring API queries in Python. Tracks top entities dominating conversation on TikTok, Reddit, and Instagram over different time periods.</p>
-                            <div class="tech-stack">
-                                <span>Python</span>
-                                <span>Vanilla JS/CSS/HTML</span>
-                                <span>Infegy Atlas API</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-image">
                             <img src="images/query-converter-thumbnail.webp" alt="Infegy Query Converter" loading="lazy">
                         </div>
                         <div class="insight-content">
@@ -843,10 +723,6 @@
                             <a href="https://www.infegy.com/infegy-query-converter" class="insight-link" target="_blank" rel="noopener noreferrer">Try Converter →</a>
                         </div>
                     </div>
-                </div>
-                <button class="expand-button">Show More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg></button>
-                <div class="insights-footer">
-                    <a href="https://www.infegy.com/resources/dashboards" class="btn" target="_blank" rel="noopener noreferrer">View All Technical Projects</a>
                 </div>
             </div>
         </section>
@@ -864,7 +740,7 @@
                     <h3>Technical Projects</h3>
                     <p>Tools and systems developed for criminal justice and law enforcement applications.</p>
                 </div>
-                <div class="insights-grid collapsed">
+                <div class="insights-grid">
                     <div class="insight-item">
                         <div class="insight-image">
                             <img src="images/kc-violence-thumbnail.webp" alt="Kansas City Violence Dashboard" loading="lazy">
@@ -909,7 +785,7 @@
                     <h3>Notable Cases</h3>
                     <p>Key cases and investigations where data analysis played a crucial role.</p>
                 </div>
-                <div class="insights-grid collapsed">
+                <div class="insights-grid">
                     <div class="insight-item">
                         <div class="insight-image">
                             <img src="images/jackson-case-thumbnail.webp" alt="James Jackson Case" loading="lazy">
@@ -986,7 +862,7 @@
                     <h3>Presentations</h3>
                     <p>Speaking engagements and training sessions on criminal justice analytics.</p>
                 </div>
-                <div class="insights-grid collapsed">
+                <div class="insights-grid">
                     <div class="insight-item">
                         <div class="insight-image">
                             <img src="images/iaca-presentation-thumbnail.webp" alt="IACA Conference Presentation" loading="lazy">

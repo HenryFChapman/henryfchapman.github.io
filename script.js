@@ -15,156 +15,6 @@ const observer = new IntersectionObserver((entries) => {
     rootMargin: '0px 0px -100px 0px'
 });
 
-// ── Hero canvas ────────────────────────────────────────────────────────────────
-
-let heroAnimId = null;
-let heroCanvas = null;
-const heroMouse = { x: null, y: null };
-
-function createParticleNetwork() {
-    if (heroAnimId) {
-        cancelAnimationFrame(heroAnimId);
-        heroAnimId = null;
-    }
-
-    const container = document.querySelector('.hero-background');
-    if (!container) return;
-
-    const width = container.offsetWidth;
-    const height = container.offsetHeight;
-
-    if (!heroCanvas) {
-        heroCanvas = document.createElement('canvas');
-        heroCanvas.setAttribute('aria-hidden', 'true');
-        Object.assign(heroCanvas.style, { position: 'absolute', top: '0', left: '0' });
-        container.appendChild(heroCanvas);
-
-        // Track mouse over the hero section
-        const heroSection = container.parentElement;
-        heroSection.addEventListener('mousemove', (e) => {
-            const rect = heroCanvas.getBoundingClientRect();
-            heroMouse.x = e.clientX - rect.left;
-            heroMouse.y = e.clientY - rect.top;
-        });
-        heroSection.addEventListener('mouseleave', () => {
-            heroMouse.x = null;
-            heroMouse.y = null;
-        });
-    }
-    // Resizing clears the canvas automatically
-    heroCanvas.width = width;
-    heroCanvas.height = height;
-
-    const ctx = heroCanvas.getContext('2d');
-    const COLORS = ['#2b6cb0', '#4299e1', '#00b5d8', '#3182ce'];
-
-    const particles = Array.from({ length: 90 }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.56,
-        vy: (Math.random() - 0.5) * 0.56,
-        r: Math.random() * 2 + 1.5,
-        color: COLORS[Math.floor(Math.random() * COLORS.length)],
-    }));
-
-    const CONNECTION_DIST = 160;
-    const CONNECTION_DIST_SQ = CONNECTION_DIST * CONNECTION_DIST;
-    const MOUSE_CONNECT_DIST = 200;
-    const MOUSE_CONNECT_DIST_SQ = MOUSE_CONNECT_DIST * MOUSE_CONNECT_DIST;
-    const MOUSE_REPEL_DIST = 100;
-    const MOUSE_REPEL_DIST_SQ = MOUSE_REPEL_DIST * MOUSE_REPEL_DIST;
-
-    function tick() {
-        ctx.clearRect(0, 0, width, height);
-
-        // Particle-to-particle connections
-        ctx.strokeStyle = '#2b6cb0';
-        ctx.lineWidth = 0.8;
-        for (let i = 0; i < particles.length - 1; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const a = particles[i], b = particles[j];
-                const dx = a.x - b.x, dy = a.y - b.y;
-                const distSq = dx * dx + dy * dy;
-                if (distSq < CONNECTION_DIST_SQ) {
-                    const dist = Math.sqrt(distSq);
-                    ctx.globalAlpha = (1 - dist / CONNECTION_DIST) * 0.45;
-                    ctx.beginPath();
-                    ctx.moveTo(a.x, a.y);
-                    ctx.lineTo(b.x, b.y);
-                    ctx.stroke();
-                }
-            }
-        }
-
-        // Mouse interactions
-        if (heroMouse.x !== null) {
-            ctx.strokeStyle = '#00b5d8';
-            ctx.lineWidth = 1;
-            particles.forEach(p => {
-                const dx = p.x - heroMouse.x;
-                const dy = p.y - heroMouse.y;
-                const distSq = dx * dx + dy * dy;
-                if (distSq < MOUSE_CONNECT_DIST_SQ) {
-                    const dist = Math.sqrt(distSq);
-                    // Connection line from cursor to particle
-                    ctx.globalAlpha = (1 - dist / MOUSE_CONNECT_DIST) * 0.55;
-                    ctx.beginPath();
-                    ctx.moveTo(heroMouse.x, heroMouse.y);
-                    ctx.lineTo(p.x, p.y);
-                    ctx.stroke();
-                    // Repulsion force
-                    if (distSq < MOUSE_REPEL_DIST_SQ && dist > 0) {
-                        const force = (1 - dist / MOUSE_REPEL_DIST) * 0.3;
-                        p.vx += (dx / dist) * force;
-                        p.vy += (dy / dist) * force;
-                    }
-                }
-            });
-
-            // Glowing cursor dot
-            const glow = ctx.createRadialGradient(heroMouse.x, heroMouse.y, 0, heroMouse.x, heroMouse.y, 14);
-            glow.addColorStop(0, 'rgba(0,181,216,0.5)');
-            glow.addColorStop(1, 'rgba(0,181,216,0)');
-            ctx.globalAlpha = 1;
-            ctx.beginPath();
-            ctx.arc(heroMouse.x, heroMouse.y, 14, 0, Math.PI * 2);
-            ctx.fillStyle = glow;
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(heroMouse.x, heroMouse.y, 3, 0, Math.PI * 2);
-            ctx.fillStyle = '#00b5d8';
-            ctx.fill();
-        }
-
-        // Draw & update particles
-        ctx.globalAlpha = 0.7;
-        particles.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = p.color;
-            ctx.fill();
-            p.x += p.vx;
-            p.y += p.vy;
-            // Decay any velocity above the natural speed
-            const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-            if (speed > 2) {
-                p.vx = (p.vx / speed) * 2;
-                p.vy = (p.vy / speed) * 2;
-            } else if (speed > 0.56) {
-                p.vx *= 0.98;
-                p.vy *= 0.98;
-            }
-            if (p.x < 0 || p.x > width) p.vx *= -1;
-            if (p.y < 0 || p.y > height) p.vy *= -1;
-        });
-
-        ctx.globalAlpha = 1;
-        heroAnimId = requestAnimationFrame(tick);
-    }
-
-    tick();
-}
-
 // ── Dot-grid hover glow ────────────────────────────────────────────────────────
 
 function createDotGrid() {
@@ -187,12 +37,18 @@ function createDotGrid() {
     const [R, G, B] = [43, 108, 176];
 
     const trail = [];  // { x, y, born }
+    const ripples = [];  // { x, y, born }
+    const RIPPLE_MS   = 2400;
+    const RIPPLE_MAX  = 1100;  // px the wave travels
+    const RIPPLE_BAND = 56;    // px width of the lit band
     let lastCol = null, lastRow = null;
     let animId  = null;
 
     function resize() {
         canvas.width  = main.offsetWidth;
-        canvas.height = main.scrollHeight;
+        // offsetHeight, not scrollHeight: scrollHeight includes the canvas itself,
+        // so the canvas could never shrink (e.g. after web fonts load and reflow).
+        canvas.height = main.offsetHeight;
     }
 
     function tick() {
@@ -202,6 +58,32 @@ function createDotGrid() {
         while (trail.length > 0 && now - trail[0].born > FADE_MS) trail.shift();
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        while (ripples.length > 0 && now - ripples[0].born > RIPPLE_MS) ripples.shift();
+
+        // Ripple: a ring of grid dots that brightens as a wave passes through them
+        for (const rp of ripples) {
+            const t = (now - rp.born) / RIPPLE_MS;
+            const r = RIPPLE_MAX * (1 - (1 - t) ** 3);  // ease-out
+            const fade = 1 - t;
+            const c0 = Math.max(0, Math.floor((rp.x - r - RIPPLE_BAND) / SPACING));
+            const c1 = Math.min(Math.ceil(canvas.width / SPACING), Math.ceil((rp.x + r + RIPPLE_BAND) / SPACING));
+            const r0 = Math.max(0, Math.floor((rp.y - r - RIPPLE_BAND) / SPACING));
+            const r1 = Math.min(Math.ceil(canvas.height / SPACING), Math.ceil((rp.y + r + RIPPLE_BAND) / SPACING));
+            for (let row = r0; row <= r1; row++) {
+                for (let col = c0; col <= c1; col++) {
+                    const x = col * SPACING + SPACING / 2;
+                    const y = row * SPACING + SPACING / 2;
+                    const off = Math.abs(Math.hypot(x - rp.x, y - rp.y) - r);
+                    if (off > RIPPLE_BAND) continue;
+                    const k = (1 - off / RIPPLE_BAND) * fade;
+                    ctx.beginPath();
+                    ctx.arc(x, y, DOT_R + k * 1.5, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${R},${G},${B},${(k * 0.55).toFixed(3)})`;
+                    ctx.fill();
+                }
+            }
+        }
 
         if (trail.length > 0) {
             ctx.lineCap = 'round';
@@ -239,7 +121,7 @@ function createDotGrid() {
             }
         }
 
-        animId = trail.length > 0 ? requestAnimationFrame(tick) : null;
+        animId = trail.length > 0 || ripples.length > 0 ? requestAnimationFrame(tick) : null;
     }
 
     function startLoop() {
@@ -268,6 +150,23 @@ function createDotGrid() {
     // still gets picked up and the canvas isn't left shorter than the page.
     new ResizeObserver(resize).observe(main);
     resize();
+
+    // Send a ripple out from the portrait once the hero has faded in, and again on click
+    const portrait = document.querySelector('.image-circle');
+    if (portrait) {
+        const ripple = () => {
+            const p = portrait.getBoundingClientRect();
+            const m = main.getBoundingClientRect();
+            ripples.push({
+                x: p.left + p.width / 2 - m.left,
+                y: p.top + p.height / 2 - m.top,
+                born: performance.now(),
+            });
+            startLoop();
+        };
+        setTimeout(ripple, 700);
+        portrait.addEventListener('click', ripple);
+    }
 }
 
 // ── Page initialisation ────────────────────────────────────────────────────────
@@ -277,15 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
     if (!reducedMotion && !isMobile) {
-        createParticleNetwork();
         createDotGrid();
-
-        // Debounced resize: refit canvas on window resize
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(createParticleNetwork, 150);
-        });
     }
 
     const navbar = document.querySelector('.navbar');
@@ -436,18 +327,4 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'ArrowRight') show(current + 1);
         });
     })();
-
-    // Expand/collapse for insights grid
-    document.querySelectorAll('.expand-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const grid = this.previousElementSibling;
-            const isCollapsed = grid.classList.contains('collapsed');
-            grid.classList.toggle('collapsed', !isCollapsed);
-            // Update text node only — preserve the SVG icon child
-            const svg = this.querySelector('svg');
-            this.textContent = isCollapsed ? 'Show Less ' : 'Show More ';
-            if (svg) this.appendChild(svg);
-            this.classList.toggle('expanded', isCollapsed);
-        });
-    });
 });
