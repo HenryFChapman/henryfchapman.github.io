@@ -368,7 +368,7 @@ section {
 main {
     position: relative;
     isolation: isolate;
-    background-image: radial-gradient(circle, rgba(43, 108, 176, 0.14) 1.5px, transparent 1.5px);
+    background-image: radial-gradient(circle, rgba(24, 24, 27, 0.12) 1.5px, transparent 1.5px);
     background-size: 32px 32px;
 }
 
@@ -718,14 +718,6 @@ footer {
     }
 }
 
-#contact .about-text {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2.5rem;
-    box-shadow: var(--shadow-sm);
-}
-
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -775,11 +767,6 @@ footer {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         margin-top: 1.5rem;
-    }
-    
-    #contact .about-text {
-        padding: 1.5rem;
-        border-radius: 12px;
     }
     
     .contact-item {
@@ -1084,7 +1071,7 @@ footer {
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--blue);
+    border: 2px solid var(--button-bg);
     box-shadow: var(--shadow-sm);
 }
 

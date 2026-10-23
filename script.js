@@ -34,7 +34,7 @@ function createDotGrid() {
     const SPACING  = 32;
     const DOT_R    = 1.5;
     const FADE_MS  = 900;  // trail lifetime in ms
-    const [R, G, B] = [43, 108, 176];
+    const [R, G, B] = [30, 58, 95];  // --button-bg navy
 
     const trail = [];  // { x, y, born }
     const ripples = [];  // { x, y, born }
