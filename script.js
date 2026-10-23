@@ -37,12 +37,40 @@ function createDotGrid() {
     const [R, G, B] = [30, 58, 95];  // --button-bg navy
 
     const trail = [];  // { x, y, born }
-    const ripples = [];  // { x, y, born }
-    const RIPPLE_MS   = 2400;
-    const RIPPLE_MAX  = 1100;  // px the wave travels
-    const RIPPLE_BAND = 56;    // px width of the lit band
+    let ripples = [];  // { x, y, born, ms, max, strength }
+    const RIPPLE_BAND = 56;  // px width of the lit band
     let lastCol = null, lastRow = null;
     let animId  = null;
+
+    // Text sitting directly on the grid: animated dots fade out around these so the
+    // trail and ripples flow around copy instead of flickering through the letters
+    const KEEP_OUT = '.hero-main, .section-header, .subsection-header, .about-text > h2, ' +
+                     '.about-text > p, .about-stats, .about-buttons, .contact-info, figcaption';
+    const FEATHER = 24;  // px over which dots fade back in at a text block's edge
+    let zones = [];
+
+    // Re-measured whenever an animation burst starts, so layout shifts are picked up
+    function ensureZones() {
+        if (animId) return;
+        const m = main.getBoundingClientRect();
+        zones = [...main.querySelectorAll(KEEP_OUT)].map(el => {
+            const r = el.getBoundingClientRect();
+            return { l: r.left - m.left, t: r.top - m.top, r: r.right - m.left, b: r.bottom - m.top };
+        });
+    }
+
+    // 0 inside a text block, ramping to 1 at FEATHER px away
+    function clearance(x, y) {
+        let c = 1;
+        for (const z of zones) {
+            const dx = Math.max(z.l - x, 0, x - z.r);
+            const dy = Math.max(z.t - y, 0, y - z.b);
+            if (dx >= FEATHER || dy >= FEATHER) continue;
+            c = Math.min(c, Math.hypot(dx, dy) / FEATHER);
+            if (c === 0) return 0;
+        }
+        return c;
+    }
 
     function resize() {
         canvas.width  = main.offsetWidth;
@@ -59,13 +87,13 @@ function createDotGrid() {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        while (ripples.length > 0 && now - ripples[0].born > RIPPLE_MS) ripples.shift();
+        ripples = ripples.filter(rp => now - rp.born < rp.ms);
 
         // Ripple: a ring of grid dots that brightens as a wave passes through them
         for (const rp of ripples) {
-            const t = (now - rp.born) / RIPPLE_MS;
-            const r = RIPPLE_MAX * (1 - (1 - t) ** 3);  // ease-out
-            const fade = 1 - t;
+            const t = (now - rp.born) / rp.ms;
+            const r = rp.max * (1 - (1 - t) ** 3);  // ease-out
+            const fade = (1 - t) * rp.strength;
             const c0 = Math.max(0, Math.floor((rp.x - r - RIPPLE_BAND) / SPACING));
             const c1 = Math.min(Math.ceil(canvas.width / SPACING), Math.ceil((rp.x + r + RIPPLE_BAND) / SPACING));
             const r0 = Math.max(0, Math.floor((rp.y - r - RIPPLE_BAND) / SPACING));
@@ -76,7 +104,8 @@ function createDotGrid() {
                     const y = row * SPACING + SPACING / 2;
                     const off = Math.abs(Math.hypot(x - rp.x, y - rp.y) - r);
                     if (off > RIPPLE_BAND) continue;
-                    const k = (1 - off / RIPPLE_BAND) * fade;
+                    const k = (1 - off / RIPPLE_BAND) * fade * clearance(x, y);
+                    if (k <= 0) continue;
                     ctx.beginPath();
                     ctx.arc(x, y, DOT_R + k * 1.5, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(${R},${G},${B},${(k * 0.55).toFixed(3)})`;
@@ -93,7 +122,7 @@ function createDotGrid() {
                 const a = trail[i - 1], b = trail[i];
                 const dist = Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
                 if (dist > 50) continue;
-                const t = 1 - (now - b.born) / FADE_MS;
+                const t = (1 - (now - b.born) / FADE_MS) * Math.min(a.c, b.c);
                 ctx.lineWidth = t * 0.8;
                 ctx.beginPath();
                 ctx.moveTo(a.x, a.y);
@@ -104,7 +133,7 @@ function createDotGrid() {
 
             // Glow pass — soft bloom on each dot
             for (const dot of trail) {
-                const t = 1 - (now - dot.born) / FADE_MS;
+                const t = (1 - (now - dot.born) / FADE_MS) * dot.c;
                 ctx.beginPath();
                 ctx.arc(dot.x, dot.y, DOT_R + t * 7, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(${R},${G},${B},${(t * 0.1).toFixed(3)})`;
@@ -113,7 +142,7 @@ function createDotGrid() {
 
             // Core dots — head bright, tail faded
             for (const dot of trail) {
-                const t = 1 - (now - dot.born) / FADE_MS;
+                const t = (1 - (now - dot.born) / FADE_MS) * dot.c;
                 ctx.beginPath();
                 ctx.arc(dot.x, dot.y, DOT_R + t * 2, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(${R},${G},${B},${(t * 0.7).toFixed(3)})`;
@@ -135,7 +164,11 @@ function createDotGrid() {
         const row  = Math.round((e.clientY - rect.top  - SPACING / 2) / SPACING);
 
         if (col !== lastCol || row !== lastRow) {
-            trail.push({ x: col * SPACING + SPACING / 2, y: row * SPACING + SPACING / 2, born: performance.now() });
+            const x = col * SPACING + SPACING / 2;
+            const y = row * SPACING + SPACING / 2;
+            ensureZones();
+            const c = clearance(x, y);
+            if (c > 0) trail.push({ x, y, c, born: performance.now() });
             if (trail.length > 30) trail.shift(); // safety cap
             lastCol = col;
             lastRow = row;
@@ -151,22 +184,43 @@ function createDotGrid() {
     new ResizeObserver(resize).observe(main);
     resize();
 
-    // Send a ripple out from the portrait once the hero has faded in, and again on click
+    // Ripple sizes, from the big hero wave down to small hover echoes
+    const RIPPLES = {
+        hero:    { ms: 2400, max: 1100, strength: 1 },
+        click:   { ms: 1800, max: 600,  strength: 0.9 },
+        hover:   { ms: 1000, max: 160,  strength: 0.5 },
+    };
+
+    function rippleFrom(el, size) {
+        const e = el.getBoundingClientRect();
+        const m = main.getBoundingClientRect();
+        rippleAt(e.left + e.width / 2 - m.left, e.top + e.height / 2 - m.top, size);
+    }
+
+    function rippleAt(x, y, size) {
+        ensureZones();
+        ripples.push({ x, y, born: performance.now(), ...RIPPLES[size] });
+        startLoop();
+    }
+
+    // Hero: a wave from the portrait once the hero has faded in, and again on click
     const portrait = document.querySelector('.image-circle');
     if (portrait) {
-        const ripple = () => {
-            const p = portrait.getBoundingClientRect();
-            const m = main.getBoundingClientRect();
-            ripples.push({
-                x: p.left + p.width / 2 - m.left,
-                y: p.top + p.height / 2 - m.top,
-                born: performance.now(),
-            });
-            startLoop();
-        };
-        setTimeout(ripple, 700);
-        portrait.addEventListener('click', ripple);
+        setTimeout(() => rippleFrom(portrait, 'hero'), 700);
+        portrait.addEventListener('click', () => rippleFrom(portrait, 'hero'));
     }
+
+    // Clicking empty background sends a ripple from the click point
+    main.addEventListener('click', (e) => {
+        if (e.target.closest('a, button, img, .insight-item, .interests-item, .exp-item')) return;
+        if (window.getSelection().toString()) return;  // user was selecting text
+        const m = main.getBoundingClientRect();
+        rippleAt(e.clientX - m.left, e.clientY - m.top, 'click');
+    });
+
+    // Primary buttons echo a tiny ripple on hover
+    document.querySelectorAll('.btn-explore, .about-buttons .btn, .resume-download .btn')
+        .forEach(btn => btn.addEventListener('mouseenter', () => rippleFrom(btn, 'hover')));
 }
 
 // ── Page initialisation ────────────────────────────────────────────────────────
