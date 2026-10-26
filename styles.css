@@ -79,7 +79,7 @@ button {
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
     gap: 2rem;
@@ -1056,32 +1056,19 @@ footer {
 }
 
 .nav-home {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.nav-home:hover {
-    transform: scale(1.05);
-}
-
-/* Matches the favicon: white Fraunces H on a navy rounded square */
-.nav-monogram {
-    width: 40px;
-    height: 40px;
-    border-radius: 9px;
-    background: var(--button-bg);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: var(--font-display);
     font-weight: 600;
     font-variation-settings: 'SOFT' 50, 'WONK' 0;
-    font-size: 28px;
-    line-height: 1;
-    box-shadow: var(--shadow-sm);
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    color: var(--gray-dark);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-home:hover {
+    color: var(--button-bg);
 }
 
 @media (max-width: 960px) {
@@ -1090,10 +1077,8 @@ footer {
         gap: 1rem;
     }
 
-    .nav-monogram {
-        width: 35px;
-        height: 35px;
-        font-size: 24px;
+    .nav-home {
+        font-size: 1.25rem;
     }
 }
 
@@ -1101,7 +1086,7 @@ footer {
     display: none;
     background: none;
     border: none;
-    color: var(--blue);
+    color: var(--gray-dark);
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -1109,7 +1094,7 @@ footer {
 }
 
 .menu-button:hover {
-    color: var(--blue-dark);
+    color: var(--button-bg);
 }
 
 @media (max-width: 960px) {
