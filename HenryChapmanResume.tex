@@ -2,16 +2,27 @@
 
   \usepackage[empty]{fullpage}
   \usepackage{titlesec}
-  \usepackage[usenames,dvipsnames]{color}
+  \usepackage[usenames,dvipsnames]{xcolor}
   \usepackage{enumitem}
-  \usepackage[hidelinks]{hyperref}
+  \usepackage{hyperref}
   \usepackage{fancyhdr}
   \usepackage[english]{babel}
-  \usepackage[sfdefault]{roboto}
-  \ifdefined\pdfglyphtounicode
-    \input{glyphtounicode}
-    \pdfgentounicode=1
-  \fi
+
+  % Fonts and colors match henryfchapman.github.io: Fraunces headings, DM Sans body
+  \usepackage{fontspec}
+  \setmainfont{DMSans}[
+    Path = resume-fonts/, Extension = .ttf, Scale = 0.94,
+    UprightFont = *-Regular, BoldFont = *-Bold,
+    ItalicFont = *-Italic, BoldItalicFont = *-MediumItalic]
+  \newfontfamily\displayfont{Fraunces-SemiBold}[Path = resume-fonts/, Extension = .ttf]
+  \newfontfamily\mediumfont{DMSans-Medium}[Path = resume-fonts/, Extension = .ttf, Scale = 0.94, Ligatures = TeX]
+
+  \definecolor{ink}{HTML}{18181B}
+  \definecolor{muted}{HTML}{52525B}
+  \definecolor{navy}{HTML}{1E3A5F}
+  \definecolor{linkblue}{HTML}{2B6CB0}
+  \color{ink}
+  \hypersetup{colorlinks = true, urlcolor = linkblue, linkcolor = linkblue}
 
   \pagestyle{fancy}
   \fancyhf{}
@@ -33,8 +44,8 @@
   \setlength{\tabcolsep}{0in}
 
   \titleformat{\section}{
-    \vspace{-2pt}\scshape\raggedright\large\bfseries
-  }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+    \vspace{-2pt}\displayfont\raggedright\large\color{ink}
+  }{}{0em}{}[\color{navy}\titlerule \vspace{-5pt}]
 
   %-------------------------
   % Custom commands
@@ -42,11 +53,18 @@
     \item\small{{#1 \vspace{-2pt}}}
   }
 
-  \newcommand{\resumeSubheading}[4]{
-    \vspace{1pt}\item
+  % Company line, followed by one \resumeRole per position held there
+  \newcommand{\resumeCompany}[2]{
+    \vspace{4pt}\item
       \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \textbf{#1} & \textbf{\small #2} \\
-        \textit{\small#3} & \textit{\small #4} \\
+        \textbf{#1} & {\color{muted}\textit{\small #2}} \\
+      \end{tabular*}\vspace{-7pt}
+  }
+
+  \newcommand{\resumeRole}[2]{
+    \item
+      \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        {\mediumfont\small #1} & {\color{muted}\small #2} \\
       \end{tabular*}\vspace{-7pt}
   }
 
@@ -57,22 +75,22 @@
       \end{tabular*}\vspace{-7pt}
   }
 
-  \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
-  \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+  \renewcommand\labelitemi{\textcolor{navy}{$\vcenter{\hbox{\tiny$\bullet$}}$}}
+  \renewcommand\labelitemii{\textcolor{navy}{$\vcenter{\hbox{\tiny$\bullet$}}$}}
 
   \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
   \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
   \newcommand{\resumeItemListStart}{\begin{itemize}}
-  \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
+  \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
 
   %-------------------------------------------
   \begin{document}
 
   %----------HEADING----------
   \begin{flushleft}
-    {\Huge \scshape Henry Chapman} \\ \vspace{2pt}
+    {\displayfont\Huge Henry Chapman} \\ \vspace{2pt}
     \small
-    Sales Engineer $\vert$ Denver, Colorado \\  \vspace{1pt}
+    {\color{muted}Sales Engineer $\vert$ Denver, Colorado} \\  \vspace{1pt}
       \href{tel:9732559098}{(973) 255-9098} $|$
       \href{mailto:henry.chapman@icloud.com}{henry.chapman@icloud.com} $|$
       \href{https://henryfchapman.github.io/}{henryfchapman.github.io} $|$
@@ -83,94 +101,92 @@
 \vspace{-2pt}
 \section{Summary}
 \small{Sales Engineer II at Datadog, promoted off-cycle, with 166\% Q3 2026 and 154\% H1 2026 attainment and a 94\% technical win rate across 80 evaluations. Previously grew Infegy's API business to 10\% of annual revenue and influenced \$7.5M in closed-won revenue. Started in criminal intelligence analysis for the Manhattan DA and Kansas City prosecutors, contributing forensic work to landmark homicide and police-accountability cases.}
+\vspace{-6pt}
 
   %-----------EXPERIENCE-----------
   \section{Experience}
     \resumeSubHeadingListStart
 
-      \resumeSubheading{Datadog}{August 2025 -- Present}
-        {Sales Engineer II, Commercial (Promoted from Sales Engineer)}{Denver, CO}
-\resumeItemListStart
-  \resumeItem{Promoted off-cycle after 11 months, ahead of Datadog's standard SE promotion timeline.}
-  \resumeItem{166\% of Q3 2026 quota attainment in first quarter as Sales Engineer II.}
-  \resumeItem{H1 2026 Win Hero Award, recognizing the most Sales Engineering wins in Commercial West with 19 new logos.}
-  \resumeItem{154\% of H1 2026 quota attainment; closed the 3rd-largest deal in Commercial West (Q1 2026).}
-  \resumeItem{Achieved a 94\% technical win rate across 80 pre-sales evaluations and POC deployments.}
-\resumeItemListEnd
-\resumeSubheading{Infegy}{May 2022 -- August 2025}
-    {Solutions \& Research Engineer (Promoted from Lead Analyst)}{Kansas City, MO}
-    \resumeItemListStart
-      \resumeItem{Influenced \$12.4M in pipeline and \$7.5M closed-won revenue across pre-sales engineering and content strategy.}
-      \resumeItem{Grew API business to 10\% of annual revenue, including the three largest deals in company history.}
-      \resumeItem{Launched \href{https://www.infegy.com/insight-brief}{\underline{Insights by Infegy}}, writing 106 insight briefs on brand, cultural,
-  and political trends in social media.}
-      \resumeItem{Named one of \href{https://www.thesilab.com/social-intelligence-insider-winners/henry-chapman}{\underline{Social Intelligence Lab's}}
-  four 2025 Tech Pioneers for innovation in social listening.}
-    \resumeItemListEnd
+      \resumeCompany{Datadog}{Denver, CO}
+      \resumeRole{Sales Engineer II, Commercial}{July 2026 -- Present}
+        \resumeItemListStart
+          \resumeItem{Promoted off-cycle after 11 months, ahead of Datadog's standard SE promotion timeline.}
+          \resumeItem{166\% of Q3 2026 quota attainment in first quarter as Sales Engineer II.}
+        \resumeItemListEnd
+      \resumeRole{Sales Engineer, Commercial}{August 2025 -- July 2026}
+        \resumeItemListStart
+          \resumeItem{H1 2026 Win Hero Award, recognizing the most Sales Engineering wins in Commercial West with 19 new logos.}
+          \resumeItem{154\% of H1 2026 quota attainment; closed the 3rd-largest deal in Commercial West (Q1 2026).}
+          \resumeItem{Achieved a 94\% technical win rate across 80 pre-sales evaluations and POC deployments.}
+        \resumeItemListEnd
 
-        \resumeSubheading{Jackson County Prosecutor's Office}{November 2019 -- May 2022}
-          {Data Analyst, Crime Strategies Unit}{Kansas City, MO}
-          \resumeItemListStart
-            \resumeItem{Conducted technical analysis resulting in the first
-  \href{https://www.nytimes.com/2021/11/20/us/cameron-lamb-eric-devalkenaere.html}{\underline{homicide conviction}} of a Kansas City Police detective.}
-            \resumeItem{Spearheaded \href{https://www.kansascity.com/news/local/crime/article252634928.html}{\underline{research}} that
-  reduced
-  Kansas City-charged narcotics felonies by 90\%.}
-            \resumeItem{Managed trial exhibits and courtroom technology for the
-  \href{https://www.npr.org/2021/11/24/1058811665/kevin-strickland-released-wrongful-conviction}{\underline{Kevin Strickland wrongful conviction
-  case}}.}
-            \resumeItem{Secured \$350,000 US Department of Justice grant to launch Missouri's first local Crime Strategies Unit.}
-          \resumeItemListEnd
+      \resumeCompany{Infegy}{Kansas City, MO}
+      \resumeRole{Solutions \& Research Engineer}{July 2024 -- August 2025}
+        \resumeItemListStart
+          \resumeItem{Influenced \$12.4M in pipeline and \$7.5M closed-won revenue across pre-sales engineering and content strategy.}
+          \resumeItem{Grew API business to 10\% of annual revenue, including the three largest deals in company history.}
+          \resumeItem{Launched \href{https://www.infegy.com/insight-brief}{Insights by Infegy}, writing 106 insight briefs on brand, cultural,
+  and political trends in social media.}
+          \resumeItem{Named one of \href{https://www.thesilab.com/social-intelligence-insider-winners/henry-chapman}{Social Intelligence Lab's}
+  four 2025 Tech Pioneers for innovation in social listening.}
+        \resumeItemListEnd
+      \resumeRole{Lead Analyst}{May 2022 -- July 2024}
+        \resumeItemListStart
+          \resumeItem{Translated social data into brand narratives for clients across agencies and brands.}
+        \resumeItemListEnd
+
+      \resumeCompany{Jackson County Prosecutor's Office}{Kansas City, MO}
+      \resumeRole{Data Analyst, Crime Strategies Unit}{November 2019 -- May 2022}
+        \resumeItemListStart
+          \resumeItem{Conducted technical analysis resulting in the first
+  \href{https://www.nytimes.com/2021/11/20/us/cameron-lamb-eric-devalkenaere.html}{homicide conviction} of a Kansas City Police detective.}
+          \resumeItem{Spearheaded \href{https://www.kansascity.com/news/local/crime/article252634928.html}{research} that
+  reduced Kansas City-charged narcotics felonies by 90\%.}
+          \resumeItem{Managed trial exhibits and courtroom technology for the
+  \href{https://www.npr.org/2021/11/24/1058811665/kevin-strickland-released-wrongful-conviction}{Kevin Strickland wrongful conviction
+  case}.}
+          \resumeItem{Secured \$350,000 US Department of Justice grant to launch Missouri's first local Crime Strategies Unit.}
+        \resumeItemListEnd
 \vspace{-7pt}
 \resumeProjectHeading
-  {\textbf{Pacific Crest Trail Thru-Hike \& 35-State Road Trip} $|$ \emph{\href{https://www.nytimes.com/2020/08/14/fashion/weddings/perfectly-in-sync-during-a-35-state-road-trip-and-a-1200-mile-hike.html}{\underline{Featured in the New York Times}}}}{March 2019 -- October 2019}\vspace{-7pt}
-        \resumeSubheading{New York County District Attorney's Office}{June 2016 -- March 2019}
-          {Consultant (Promoted from Technology Analyst)}{New York, NY}
-          \resumeItemListStart
-            \resumeItem{Provided forensic analysis for
-  \href{https://www.washingtonpost.com/graphics/2019/local/race-war-murder-hate-crime/}{\underline{New
-  York's first state-level domestic terrorism homicide case}}; analytical work appeared in the
-  \href{https://www.nytimes.com/2018/09/20/nyregion/fatal-stabbing-race-attack-police-interview.html}{\underline{New York Times}} and
-  \href{https://www.washingtonpost.com/graphics/2019/local/race-war-murder-hate-crime/}{\underline{Washington Post}}.}
-            \resumeItem{Testified in multiple homicide and violent felony trials (gang-involved homicides and domestic violence).}
-          \resumeItemListEnd
+  {\textbf{Pacific Crest Trail Thru-Hike \& 35-State Road Trip} $|$ \emph{\href{https://www.nytimes.com/2020/08/14/fashion/weddings/perfectly-in-sync-during-a-35-state-road-trip-and-a-1200-mile-hike.html}{Featured in the New York Times}}}{\mdseries\color{muted}March 2019 -- October 2019}\vspace{-7pt}
+
+      \resumeCompany{New York County District Attorney's Office}{New York, NY}
+      \resumeRole{Consultant}{August 2018 -- March 2019}
+        \resumeItemListStart
+          \resumeItem{Provided forensic analysis for
+  \href{https://www.washingtonpost.com/graphics/2019/local/race-war-murder-hate-crime/}{New
+  York's first state-level domestic terrorism homicide case}; analytical work appeared in the
+  \href{https://www.nytimes.com/2018/09/20/nyregion/fatal-stabbing-race-attack-police-interview.html}{New York Times} and
+  \href{https://www.washingtonpost.com/graphics/2019/local/race-war-murder-hate-crime/}{Washington Post}.}
+        \resumeItemListEnd
+      \resumeRole{Technology Analyst}{March 2017 -- August 2018}
+        \resumeItemListStart
+          \resumeItem{Directed a year-long cyber-stalking investigation involving 100 fake accounts that ended in a conviction.}
+          \resumeItem{Testified in multiple homicide and violent felony trials (gang-involved homicides and domestic violence).}
+        \resumeItemListEnd
+      \resumeRole{Trial Preparation Assistant}{June 2016 -- March 2017}
+        \resumeItemListStart
+          \resumeItem{Compiled, analyzed, and redacted case documents for discovery in homicide and violent felony cases.}
+        \resumeItemListEnd
 
     \resumeSubHeadingListEnd
 
   %-----------EDUCATION-----------
   \section{Education}
     \resumeSubHeadingListStart
-  \resumeSubheading{University of Pennsylvania}{January 2020 -- May 2024}
-    {Master's in Applied Computer Science (MCIT)}{Philadelphia, PA}
-    \resumeItemListStart
-  \resumeItem{Completed part-time while working full-time.}
-    \resumeItemListEnd
-      \resumeSubheading{Yale University}{September 2012 -- June 2016}
-        {Bachelor of Arts in Global Affairs (International Security)}{New Haven, CT}
-    \resumeSubHeadingListEnd
-
-  %-----------PROJECTS-----------
-  \section{Selected Projects}
-    \resumeSubHeadingListStart
-      \resumeProjectHeading
-        {\textbf{\href{https://www.nytimes.com/2021/11/20/us/cameron-lamb-eric-devalkenaere.html}{\underline{State of Missouri v. Eric DeValkenaere}}}
-  $|$ \emph{Python, Plotly, GeoPandas, Folium/Leaflet}}{November 2021}
+      \resumeCompany{University of Pennsylvania}{Philadelphia, PA}
+      \resumeRole{Master's in Applied Computer Science (MCIT)}{January 2020 -- May 2024}
         \resumeItemListStart
-          \resumeItem{Conducted a multivariate time series analysis of Cameron Lamb's police homicide.}
-          \resumeItem{Analysis enabled the prosecution's arguments that DeValkenaere violated Lamb's constitutional rights.}
+          \resumeItem{Completed part-time while working full-time.}
         \resumeItemListEnd
-      \vspace{-10pt}
-      \resumeProjectHeading
-        {\textbf{\href{https://www.kshb.com/news/local-news/investigations/jackson-county-prosecutor-examines-use-of-resources-to-better-fight-violence-in-kansas-city}{\underline{Narcotics Enforcement Reform}}} $|$ \emph{Python, Pandas, Selenium, ocrMyPDF, GeoPandas, NetworkX}}{June 2021}
-        \resumeItemListStart
-          \resumeItem{Found that Black citizens represented 85\% of accused drug dealers while only making up 39\% of the population.}
-          \resumeItem{Analysis resulted in a 90\% reduction in filed drug-related felonies (1,000 fewer filed drug cases per year).}
-        \resumeItemListEnd
+      \resumeCompany{Yale University}{New Haven, CT}
+      \resumeRole{Bachelor of Arts in Global Affairs (International Security)}{September 2012 -- June 2016}
     \resumeSubHeadingListEnd
 
   %-----------TECHNICAL SKILLS-----------
   \section{Technical Skills}
-    \begin{itemize}[leftmargin=0.15in, label={}]
+    \begin{itemize}[leftmargin=0in, label={}]
       \small{\item{
   \textbf{Technologies:}{ Python, JavaScript, Pandas, NumPy, Scikit-learn, REST APIs, Git, AWS}  \\
   \textbf{Observability:}{ Infrastructure Monitoring, APM, Distributed Tracing, Log Management, LLM Observability, CI/CD} \\
