@@ -5,6 +5,7 @@
   \usepackage[usenames,dvipsnames]{xcolor}
   \usepackage{enumitem}
   \usepackage{hyperref}
+  \usepackage[normalem]{ulem}
   \usepackage{fancyhdr}
   \usepackage[english]{babel}
 
@@ -90,17 +91,21 @@
   \begin{flushleft}
     {\displayfont\Huge Henry Chapman} \\ \vspace{2pt}
     \small
-    {\color{muted}Sales Engineer II $\vert$ Denver, Colorado} \\  \vspace{1pt}
+    {\color{muted}Sales Engineer II $\vert$ Denver, CO} \\  \vspace{1pt}
       \href{tel:9732559098}{(973) 255-9098} $|$
       \href{mailto:henry.chapman@icloud.com}{henry.chapman@icloud.com} $|$
       \href{https://henryfchapman.github.io/}{henryfchapman.github.io} $|$
       \href{https://linkedin.com/in/henryfchapman/}{linkedin.com/in/henryfchapman}
   \end{flushleft}
+  % Body links: ink text with a thin muted underline so press links don't outweigh recent work
+  \hypersetup{urlcolor = ink}
+  \let\plainhref\href
+  \renewcommand{\href}[2]{\plainhref{#1}{\bgroup\markoverwith{\textcolor{muted}{\rule[-0.45ex]{2pt}{0.35pt}}}\ULon{#2}}}
   \vspace{-16pt}
 
 \vspace{-2pt}
 \section{Summary}
-\small{Sales Engineer II at Datadog: 166\% of Q3 2026 quota, 154\% in H1 2026, 19 new logos, and a 94\% technical win rate across 80 evaluations; promoted off-cycle after 11 months. At Infegy, grew the API business to 10\% of annual revenue and influenced \$7.5M in closed-won revenue. Began as a criminal intelligence analyst for New York County and Kansas City prosecutors, testifying in homicide trials and cutting Kansas City narcotics felony charges by 90\%.}
+\small{Sales engineer who started in prosecutors' offices, analyzing technical evidence and explaining it to juries in homicide trials. At Datadog, delivered 166\% of Q3 2026 quota and a 94\% technical win rate across 80 evaluations, specializing in OpenTelemetry, custom metrics, and FedRAMP/GovCloud. At Infegy, grew the API business to 10\% of annual revenue and influenced \$7.5M in closed-won revenue.}
 \vspace{-6pt}
 
   %-----------EXPERIENCE-----------
@@ -108,16 +113,16 @@
     \resumeSubHeadingListStart
 
       \resumeCompany{Datadog}{Denver, CO}
-      \resumeRole{Sales Engineer II, Commercial}{July 2026 -- Present}
+      \resumeRole{Sales Engineer II, Commercial (promoted off-cycle after 11 months)}{July 2026 -- Present}
         \resumeItemListStart
-          \resumeItem{Led 80 evaluations (94\% technical win rate) across the Datadog platform, specializing in custom metrics scoping, OpenTelemetry, GovCloud, and FedRAMP for customers ranging from manufacturing to frontier AI labs and defense.}
-          \resumeItem{Promoted off-cycle after 11 months, ahead of Datadog's standard SE promotion timeline.}
+          \resumeItem{Led 80 evaluations since joining (94\% technical win rate), specializing in custom metrics scoping, OpenTelemetry, GovCloud, and FedRAMP for customers from manufacturing to frontier AI labs and defense.}
           \resumeItem{Delivered 166\% of Q3 2026 quota in first quarter as Sales Engineer II.}
         \resumeItemListEnd
       \resumeRole{Sales Engineer, Commercial}{August 2025 -- July 2026}
         \resumeItemListStart
           \resumeItem{Earned the H1 2026 Win Hero Award for the most Sales Engineering wins in Commercial West (19 new logos).}
-          \resumeItem{Attained 154\% of H1 2026 quota; closed the 3rd-largest deal in Commercial West (Q1 2026).}
+          \resumeItem{Attained 154\% of H1 2026 quota.}
+          \resumeItem{Closed the third-largest deal in Commercial West (Q1 2026): a GovCloud deployment spanning Infrastructure, APM, and Kubernetes monitoring.}
         \resumeItemListEnd
 
       \resumeCompany{Infegy}{Kansas City, MO}
@@ -139,9 +144,8 @@
           \resumeItem{Spearheaded \href{https://www.kansascity.com/news/local/crime/article252634928.html}{research} that
   reduced narcotics felony charges in Kansas City by 90\%.}
           \resumeItem{Managed trial exhibits and courtroom technology for the
-  \href{https://www.npr.org/2021/11/24/1058811665/kevin-strickland-released-wrongful-conviction}{Kevin Strickland wrongful conviction
-  case}.}
-          \resumeItem{Secured \$350,000 US Department of Justice grant to launch Missouri's first local Crime Strategies Unit.}
+  \href{https://www.npr.org/2021/11/24/1058811665/kevin-strickland-released-wrongful-conviction}{Kevin Strickland exoneration}.}
+          \resumeItem{Secured a \$350,000 US Department of Justice grant to launch Missouri's first local Crime Strategies Unit.}
         \resumeItemListEnd
 \vspace{-7pt}
 \resumeProjectHeading
@@ -168,7 +172,10 @@
   \section{Education}
     \resumeSubHeadingListStart
       \resumeCompany{University of Pennsylvania}{Philadelphia, PA}
-      \resumeRole{Master's in Applied Computer Science (MCIT), part-time while working full-time}{January 2020 -- May 2024}
+      \resumeRole{Master of Computer and Information Technology (MCIT), part-time}{January 2020 -- May 2024}
+        \resumeItemListStart
+          \resumeItem{Program renamed Master of Applied Science in Computer Science (MAS-CS) in 2026.}
+        \resumeItemListEnd
       \resumeCompany{Yale University}{New Haven, CT}
       \resumeRole{Bachelor of Arts in Global Affairs (International Security)}{September 2012 -- June 2016}
     \resumeSubHeadingListEnd
@@ -177,8 +184,9 @@
   \section{Technical Skills}
     \begin{itemize}[leftmargin=0in, label={}]
       \small{\item{
-  \textbf{Technologies:}{ Python, JavaScript, Pandas, NumPy, Scikit-learn, REST APIs, Git, AWS, Kubernetes, Terraform}  \\
-  \textbf{Observability:}{ Infrastructure Monitoring, APM, Distributed Tracing, Log Management, LLM Observability, CI/CD} \\
+  \textbf{Technologies:}{ AWS, Kubernetes, Terraform, OpenTelemetry, Python, JavaScript, REST APIs, Git, Scikit-learn}  \\
+  \textbf{Observability:}{ Infrastructure Monitoring, APM, Distributed Tracing, Log Management, LLM Observability, CI Visibility} \\
+  \textbf{Public Sector:}{ FedRAMP, AWS GovCloud} \\
   \textbf{Certifications:}{ AWS Cloud Practitioner, Datadog Fundamentals, Datadog APM, Datadog Log Management}}}
     \end{itemize}
 
